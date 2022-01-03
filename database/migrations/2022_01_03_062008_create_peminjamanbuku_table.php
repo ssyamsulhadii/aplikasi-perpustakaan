@@ -22,7 +22,7 @@ class CreatePeminjamanbukuTable extends Migration
             $table->foreign('buku_id')->references('id')->on('buku')->onDelete('cascade');
             $table->dateTime('tanggal_pinjam');
             $table->dateTime('tanggal_kembali');
-            $table->tinyInteger('jumlah');
+            $table->tinyInteger('jumlah_pinjam');
             $table->boolean('status')->default(false);
             $table->timestamps();
         });
