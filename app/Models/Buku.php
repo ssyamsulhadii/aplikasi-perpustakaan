@@ -18,6 +18,6 @@ class Buku extends Model
     public function getSampulUrlAttribute()
     {
         $nama_file = $this->sampul == null ? 'default.jpg' : $this->sampul;
-        return asset('assets/images/sampul/' . $nama_file);
+        return asset('storage/sampul/' . $nama_file);
     }
 }

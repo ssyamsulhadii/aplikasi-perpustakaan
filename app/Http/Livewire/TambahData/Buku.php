@@ -4,17 +4,20 @@ namespace App\Http\Livewire\TambahData;
 
 use App\Models\Buku as ModelsBuku;
 use App\Models\Kategori;
-use App\Models\Rak;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class Buku extends Component
 {
     use WithPagination;
+    use WithFileUploads;
     protected $paginationTheme = 'bootstrap';
     public $bukuItem = false;
     public $state = [];
     public $buku = null;
+    public $sampul;
     public function render()
     {
         return view('livewire.tambah-data.buku', [
@@ -33,6 +36,7 @@ class Buku extends Component
     {
         $validate = $this->validate([
             'state.kategori_id' => 'required|exists:kategori,id',
+            'state.sampul' => 'nullable|image|max:1024',
             'state.judul' => 'required|string',
             'state.penulis' => 'required|string',
             'state.penerbit' => 'required|string',
@@ -47,7 +51,15 @@ class Buku extends Component
     }
     public function store()
     {
-        $validatedData = $this->validatedData();
+        if ($this->sampul) {
+            $this->state['sampul'] = $this->sampul;
+            $validatedData =  $this->validatedData();
+            $nama_file = $this->sampul->hashName();
+            $validatedData['sampul'] = $nama_file;
+            $this->sampul->storeAs('sampul', $nama_file);
+        } else {
+            $validatedData = $this->validatedData();
+        }
         ModelsBuku::create($validatedData);
         $this->reset();
         $this->resetValidation();
@@ -79,5 +91,18 @@ class Buku extends Component
     {
         $buku->delete();
         $this->dispatchBrowserEvent('pesan', ['teks' => "Buku $buku->judul berhasil dihapus."]);
+    }
+
+    protected function cleanupOldUploads()
+    {
+        $storage = Storage::disk('public');
+        foreach ($storage->allFiles('livewire-tmp') as $filePathname) {
+            if (!$storage->exists($filePathname)) continue;
+
+            $yesterdaysStamp = now()->subSeconds(5)->timestamp;
+            if ($yesterdaysStamp > $storage->lastModified($filePathname)) {
+                $storage->delete($filePathname);
+            }
+        }
     }
 }

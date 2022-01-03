@@ -116,9 +116,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center" x-data>
                             <span class="d-block pb-1">Default sampul buku</span>
-                            <img width="70px" class="img-thumbnail" src="{{ asset('assets/images/sampul/default.jpg') }}">
+                            <input class="d-none" type="file" x-ref="sampul" wire:model='sampul'>
+                            <img role="button" x-on:click="$refs.sampul.click()" width="70px" class="img-thumbnail"
+                            src="{{ $sampul ? $sampul->temporaryUrl() : asset('assets/images/sampul/default.jpg') }}">
                             <span class="d-block pt-1">Klik gambar untuk mengganti sampul buku</span>
                         </div>
 
@@ -148,6 +150,7 @@
 </div>
 
 @push('script')
+<script src="{{ asset('assets/js/alpinejs/alpine.min.js') }}"></script>
     <script>
         window.addEventListener('show-form-modal', event => {
             new bootstrap.Modal(document.getElementById('formModal')).show();
