@@ -119,9 +119,20 @@
                         <div class="text-center" x-data>
                             <span class="d-block pb-1">Default sampul buku</span>
                             <input class="d-none" type="file" x-ref="sampul" wire:model='sampul'>
+
                             <img role="button" x-on:click="$refs.sampul.click()" width="70px" class="img-thumbnail"
-                            src="{{ $sampul ? $sampul->temporaryUrl() : asset('assets/images/sampul/default.jpg') }}">
-                            <span class="d-block pt-1">Klik gambar untuk mengganti sampul buku</span>
+                                @if ($bukuItem)
+                                        @if ($sampul)
+                                            src="{{ $sampul->temporaryUrl() }}"
+                                        @else
+                                            src="{{ $urlEditSampul }}"
+                                        @endif
+                                @else
+                                    src="{{ $sampul ? $sampul->temporaryUrl() : asset('storage/sampul/default.jpg') }}"
+                                @endif
+                            >
+
+                            <span class="d-block pt-1">Klik gambar untuk mengganti sampul buku <span class="text-danger">minimal 1024kb</span> </span>
                         </div>
 
                     </div>
@@ -134,7 +145,7 @@
                             <i class="bi bi-save2 d-block d-sm-none" style="margin-bottom: 5px"></i>
                             <span class="d-none d-sm-block">
                                 @if ($bukuItem)
-                                Simpan perubahan
+                                    Simpan perubahan
                                 @else
                                     Simpan
                                 @endif

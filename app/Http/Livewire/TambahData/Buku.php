@@ -18,6 +18,7 @@ class Buku extends Component
     public $state = [];
     public $buku = null;
     public $sampul;
+    public $urlEditSampul;
     public function render()
     {
         return view('livewire.tambah-data.buku', [
@@ -69,17 +70,32 @@ class Buku extends Component
 
     public function edit(ModelsBuku $buku)
     {
+
         $this->reset();
         $this->resetValidation();
         $this->bukuItem = true;
         $this->buku = $buku;
         $this->dispatchBrowserEvent('show-form-modal');
         $this->state = $buku->only(['kategori_id', 'judul', 'penulis', 'penerbit', 'jumlah', 'dibaca', 'sampul']);
+        if ($buku->sampul === null) {
+            $this->urlEditSampul =  asset('storage/sampul/default.jpg');
+        } else {
+            $this->urlEditSampul =  asset('storage/sampul/' . $buku->sampul);
+        }
     }
 
     public function update()
     {
-        $validatedData = $this->validatedData();
+        if ($this->sampul) {
+            Storage::delete('sampul/' . $this->buku->sampul); //hapus photo lama
+            $this->state['sampul'] = $this->sampul;
+            $validatedData =  $this->validatedData();
+            $nama_file = $this->sampul->hashName();
+            $validatedData['sampul'] = $nama_file;
+            $this->sampul->storeAs('sampul', $nama_file);
+        } else {
+            $validatedData = $this->validatedData();
+        }
         $this->buku->update($validatedData);
         $this->reset();
         $this->resetValidation();
