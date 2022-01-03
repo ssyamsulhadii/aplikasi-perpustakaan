@@ -1,0 +1,293 @@
+id,judul,slug,penulis,penerbit,jumlah,dibaca,kategori_id
+1,Sukreni Gadis Bali,sukreni-gadis-bali,A.A. Pandji Tisna,PT Balai Pustaka,6,13,1
+2,Atheis,atheis,A.K. Mihadja,PT Balai Pustaka,9,16,1
+3,Salah Asuhan,salah-asuhan,Abdoel Moeis,PT Balai Pustaka,9,2,1
+4,Perempuan Berkalung Sorban,perempuan-berkalung-sorban,Abidah El Khalieqy,Arti Bumi Intaran,7,28,1
+5,Bekisar Merah,bekisar-merah,Ahmad Tohari,PT Gramedia Pustaka Utama,8,25,1
+6,Kubah,kubah,Ahmad Tohari,PT Gramedia Pustaka Utama,8,20,1
+7,Ronggeng Dukuh Paruk,ronggeng-dukuh-paruk,Ahmad Tohari,PT Gramedia Pustaka Utama,6,11,1
+8,Anak Tanah Air: Sebuah Novel,anak-tanah-air-sebuah-novel,Ajip Rosidi,PT Dunia Pustaka Jaya,7,11,1
+9,"Namaku Teweraut: Sebuah Roman Antropologi dari Rimba-rawa Asmat, Papua",namaku-teweraut-sebuah-roman-antropologi-dari-rimba-rawa-asmat-papua,Ani Sekarningsih,Yayasan Pustaka Obor Indonesia,6,25,1
+10,Tanah Tabu,tanah-tabu,Anindita S. Thayf,PT Gramedia Pustaka Utama,9,18,1
+11,Burung Terbang di Kelam Malam,burung-terbang-di-kelam-malam,Arafat Nur,Bentang,9,20,1
+12,Belenggu,belenggu,Armijn Pane,Dian Rakyat,7,23,1
+13,Canting,canting,Arswendo Atmowiloto,PT Gramedia Pustaka Utama,9,25,1
+14,Bilangan Fu,bilangan-fu,Ayu Utami,Kepustakaan Populer Gramedia,9,21,1
+15,Saman,saman,Ayu Utami,Kepustakaan Populer Gramedia,8,10,1
+16,Da Peci Code,da-peci-code,Ben Sohib,Ufuk Publishing House,7,10,1
+17,Olenka,olenka,Budi Darma,PT Balai Pustaka,8,25,1
+18,Supernova,supernova,Dewi Lestari,Truedee Books,8,23,1
+19,Supernova: Partikel,supernova-partikel,Dewi Lestari,PT Bentang Pustaka,6,11,1
+20,5 cm,5-cm,Donny Dirgantoro,Grasindo,8,5,1
+21,Peri Kecil di Sungai Nipah,peri-kecil-di-sungai-nipah,Dyah Merta,Koekoesan,8,8,1
+22,Lelaki Harimau,lelaki-harimau,Eka Kurniawan,PT Gramedia Pustaka Utama,8,19,1
+23,Mulai Saat Ini Segalanya Akan Berubah,mulai-saat-ini-segalanya-akan-berubah,Eliza Vitri Handayani,Yayasan Pustaka Obor Indonesia,7,29,1
+24,Kei: Kutemukan Cinta di Tengah Perang,kei-kutemukan-cinta-di-tengah-perang,Erni Aladjai,Gagas Media,9,17,1
+25,Sang Guru,sang-guru,Gerson Poyk,Pustaka Jaya,5,10,1
+26,Tenggelamnya Kapal Van Der Wijk,tenggelamnya-kapal-van-der-wijk,HAMKA,PT Balai Pustaka,7,5,1
+27,Mirah dari Banda,mirah-dari-banda,Hanna Rambe,Yayasan Pustaka Obor Indonesia,7,17,1
+28,Ayu Manda,ayu-manda,I Made Iwan Darmawan,PT Grasindo,9,6,1
+29,Surabaya,surabaya,Idrus,PT Balai Pustaka,7,23,1
+30,Dan Perang Pun Usai,dan-perang-pun-usai,Ismail Marahimin,Pustaka Jaya,8,6,1
+31,Ziarah,ziarah,Iwan Simatupang,Djambatan,8,0,1
+32,Anggadi Tupa?Menuai Badai,anggadi-tupa-menuai-badai,John Waromi,Sari Taksu,6,14,1
+33,Glonggong,glonggong,Junaedi Setiyono,PT Serambi Ilmu Semesta,6,2,1
+34,Upacara,upacara,Korrie Layun Rampan,Grasindo,5,8,1
+35,Pasar,pasar,Kuntowijoyo,Yayasan Bentang Budaya,9,25,1
+36,Bunga Roos dari Tjikembang,bunga-roos-dari-tjikembang,Kwee Tek Hoay,PT Gramedia Pustaka Utama,7,16,1
+37,Amba,amba,Laksmi Pamuntjak,PT Gramedia Pustaka Utama,8,12,1
+38,Pulang,pulang,Leila S. Chudori,Kepustakaan Populer Gramedia,5,24,1
+39,Sembilan dari Nadira,sembilan-dari-nadira,Leila S. Chudori,Kepustakaan Populer Gramedia,5,21,1
+40,Semua Untuk Hindia,semua-untuk-hindia,M. Iksaka Banu,Kepustakaan Populer Gramedia,5,24,1
+41,Sitti Nurbaya,sitti-nurbaya,Marah Rusli,PT Balai Pustaka,8,22,1
+42,Raumanen,raumanen,Marianne Katoppo,Metafor Publishing,5,13,1
+43,Student Hijo,student-hijo,Mas Marco Kartodikromo,Aksara Indonesia,6,24,1
+44,Hubbu,hubbu,Mashuri,PT Gramedia Pustaka Utama,5,8,1
+45,Azab dan Sengsara,azab-dan-sengsara,Merari Siregar,PT Balai Pustaka,8,24,1
+46,Harimau! Harimau!,harimau-harimau,Mochtar Lubis,Yayasan Pustaka Obor Indonesia,7,17,1
+47,Jalan Tak Ada Ujung,jalan-tak-ada-ujung,Mochtar Lubis,Yayasan Pustaka Obor Indonesia,9,20,1
+48,Pada Sebuah Kapal,pada-sebuah-kapal,Nh. Dini,PT Gramedia Pustaka Utama,7,22,1
+49,Keberangkatan,keberangkatan,Nh. Dini,Pustaka Jaya,5,25,1
+50,Cala Ibi,cala-ibi,Nukila Amal,PT Gramedia Pustaka Utama,8,5,1
+51,Tarian Bumi,tarian-bumi,Oka Rusmini,PT Gramedia Pustaka Utama,9,16,1
+52,Maryam,maryam,Okky Madasari,PT Gramedia Pustaka Utama,9,26,1
+53,Arus Balik,arus-balik,Pramoedya Ananta Toer,Lentera Dipantara,9,4,1
+54,Anak Semua Bangsa,anak-semua-bangsa,Pramoedya Ananta Toer,Lentera Dipantara,9,11,1
+55,Bumi Manusia,bumi-manusia,Pramoedya Ananta Toer,Lentera Dipantara,8,2,1
+56,Jejak Langkah,jejak-langkah,Pramoedya Ananta Toer,Lentera Dipantara,7,19,1
+57,Rumah Kaca,rumah-kaca,Pramoedya Ananta Toer,Lentera Dipantara,9,8,1
+58,Stasiun,stasiun,Putu Wijaya,Metafor Publishing,9,7,1
+59,Telegram,telegram,Putu Wijaya,Pustaka Jaya,6,29,1
+60,Jatisaba,jatisaba,Ramayda Akmal,Era Baru Presindo,6,1,1
+61,Gadis Kretek,gadis-kretek,Ratih Kumala,PT Gramedia Pustaka Utama,7,0,1
+62,Kerudung Merah Kirmizi,kerudung-merah-kirmizi,Remy Silado,Kepustakaan Populer Gramedia,6,11,1
+63,Kumara Hikayat Sang Kekasih,kumara-hikayat-sang-kekasih,S. Jai,Dewan Kesenian Jawa Timur,9,5,1
+64,Kejatuhan dan Hati,kejatuhan-dan-hati,S. Rukiah,Pustaka Rakjat,5,5,1
+65,Kalau Tak Untung,kalau-tak-untung,Selasih,PT Balai Pustaka,5,28,1
+66,Hikayat Kadiroen,hikayat-kadiroen,Semaoen,Yayasan Bentang Budaya,8,2,1
+67,Kitab Omong Kosong,kitab-omong-kosong,Seno Gumira Ajidarma,Bentang,8,7,1
+68,"Jaz, Parfum dan Insiden",jaz-parfum-dan-insiden,Seno Gumira Ajidarma,Yayasan Bentang Budaya,9,4,1
+69,Anak Bajang Menggiring Angin,anak-bajang-menggiring-angin,Sindhunata,PT Gramedia Pustaka Utama,5,5,1
+70,Gadis Tangsi,gadis-tangsi,Suparto Brata,Penerbit Buku Kompas,8,24,1
+71,Layar Terkembang,layar-terkembang,Sutan Takdir Alisjahbana,PT Balai Pustaka,7,23,1
+72,Calon Arang: Kisah Perempuan Korban Patriarki (Edisi Dua Bahasa),calon-arang-kisah-perempuan-korban-patriarki-edisi-dua-bahasa,Toeti Heraty,Yayasan Pustaka Obor Indonesia,9,21,1
+73,Pulang,pulang,Toha Mohtar,PT Dunia Pustaka Jaya,8,21,1
+74,Surga Sungsang,surga-sungsang,Triyanto Triwikromo,PT Gramedia Pustaka Utama,8,22,1
+75,Para Priyayi: Sebuah Novel,para-priyayi-sebuah-novel,Umar Kayam,Pustaka Utama Grafiti,8,20,1
+76,Tambera,tambera,Utuy Tatang Sontani,PT Balai Pustaka,5,14,1
+77,Persiden,persiden,Wisran Hadi,Bentang,9,17,1
+78,Burung-Burung Manyar,burung-burung-manyar,Y.B. Mangunwijaya,Penerbit Buku Kompas,7,13,1
+79,Lanang,lanang,Yonathan Rahardjo,Pustaka Alvabet,6,2,1
+80,Robohnya Surau Kami,robohnya-surau-kami,A.A. Navis,PT Gramedia Pustaka Utama,8,10,2
+81,Murjangkung: Cinta yang Dungu dan Hantu-hantu,murjangkung-cinta-yang-dungu-dan-hantu-hantu,A.S. Laksana,Gagas Media,9,7,2
+82,Memorabilia,memorabilia,Agus Noor,YUI (Yayasan untuk Indonesia),6,28,2
+83,Insomnia,insomnia,Anton Kurnia,Jalasutra,6,16,2
+84,Lukisan Masa (Cerpen),lukisan-masa-cerpen,Armijn Pane,-,9,27,2
+85,"Dari Suatu Masa, Dari Suatu Tempat",dari-suatu-masa-dari-suatu-tempat,Asrul Sani,Pustaka Jaya,6,3,2
+86,Kereta Tidur,kereta-tidur,Avianti Armand,PT Gramedia Pustaka Utama,8,13,2
+87,Perempuan Pala,perempuan-pala,Azhari,AKY Press,6,17,2
+88,Doktor Plimin,doktor-plimin,Bakdi Soemanto,PT Gramedia Pustaka Utama,7,26,2
+89,Bulan Celurit Api,bulan-celurit-api,Benny Arnas,Penerbit Koekoesan,9,10,2
+90,Orang-Orang Bloomington,orang-orang-bloomington,Budi Darma,Metafor Indonesia Media,5,25,2
+91,Dimsum Terakhir,dimsum-terakhir,Clara Ng,PT Gramedia Pustaka Utama,9,29,2
+92,Janda dari Jirah,janda-dari-jirah,Cok Sawitri,PT Gramedia Pustaka Utama,5,12,2
+93,Godlob,godlob,Danarto,Grafiti Pers,7,26,2
+94,Madre,madre,Dewi Lestari,PT Bentang Pustaka,8,0,2
+95,Filosofi Kopi,filosofi-kopi,Dewi Lestari,Truedee Books & Gagas Media,7,3,2
+96,Mereka Bilang Saya Monyet,mereka-bilang-saya-monyet,Djenar Maesa Ayu,PT Gramedia Pustaka Utama,8,11,2
+97,Cinta Tak Ada Mati dan Cerita-Cerita Lainnya,cinta-tak-ada-mati-dan-cerita-cerita-lainnya,Eka Kurniawan,PT Gramedia Pustaka Utama,5,27,2
+98,Usaha Menjadi Sakti,usaha-menjadi-sakti,Gunawan Maryanto,Omah Sore,6,10,2
+99,Kemilau Cahaya dan Perempuan Buta,kemilau-cahaya-dan-perempuan-buta,Gus Tf Sakai,PT Gramedia Pustaka Utama,9,8,2
+100,Bibir dalam Pispot,bibir-dalam-pispot,Hamsad Rangkuti,Penerbit Buku Kompas,9,22,2
+101,Sampah Bulan Desember,sampah-bulan-desember,Hamsad Rangkuti,Penerbit Buku Kompas,6,3,2
+102,Antologi Kolecer dan Hari Raya Hantu,antologi-kolecer-dan-hari-raya-hantu,Hanna Fransisca,Selasar Pena Talenta,7,16,2
+103,Benih Kayu Dewa Dapur,benih-kayu-dewa-dapur,Hanna Fransisca,Komodo Books,8,15,2
+104,Sulaiman Pergi ke Tanjung Cina,sulaiman-pergi-ke-tanjung-cina,Hanna Fransisca,Komodo Books,5,7,2
+105,Lelaki Ikan,lelaki-ikan,Hudan Hidayat,Penerbit Buku Kompas,7,21,2
+106,Dari Ave Maria ke Jalan Lain ke Roma,dari-ave-maria-ke-jalan-lain-ke-roma,Idrus,PT Balai Pustaka,9,18,2
+107,Rumah yang Tampak Biru oleh Cahaya Bulan,rumah-yang-tampak-biru-oleh-cahaya-bulan,Imam Muhtarom,Grasindo,6,2,2
+108,Sihir Perempuan,sihir-perempuan,Intan Paramaditha,KataKita,6,0,2
+109,Tegak Lurus dengan Langit,tegak-lurus-dengan-langit,Iwan Simatupang,Penerbit Buku Kompas,7,7,2
+110,Kali Mati,kali-mati,Joni Ariadinata,Yayasan Bentang Budaya,8,13,2
+111,Antologi Cerpen Indonesia,antologi-cerpen-indonesia,Kumpulan Penulis,Lontar,9,24,2
+112,Makunrai,makunrai,Lily Yulianti Farid,Nala Cipta Litera,8,16,2
+113,"Ayahku Bulan, Engkau Matahari",ayahku-bulan-engkau-matahari,Lily Yulianti Farid,PT Gramedia Pustaka Utama,6,29,2
+114,Kuda Terbang Maria Pinto,kuda-terbang-maria-pinto,Linda Christanty,Katakita,5,4,2
+115,"Mati Baik-Baik, Kawan",mati-baik-baik-kawan,Martin Aleida,Ultimus,5,17,2
+116,Wajah Terakhir,wajah-terakhir,Mona Sylvana,PT Gramedia Pustaka Utama,9,7,2
+117,Hujan Kepagian,hujan-kepagian,Nugroho Notosusanto,PT Balai Pustaka,7,8,2
+118,Laluba,laluba,Nukila Amal,Alvabet,5,1,2
+119,Sagra: Kumpulan Cerpen,sagra-kumpulan-cerpen,Oka Rusmini,Grasindo,6,8,2
+120,Cerita dari Blora,cerita-dari-blora,Pramoedya Ananta Toer,Lentera Dipantara,7,6,2
+121,Cerita dari Jakarta,cerita-dari-jakarta,Pramoedya Ananta Toer,Lentera Dipantara,8,9,2
+122,Cerita-Cerita Negeri Asap,cerita-cerita-negeri-asap,Radhar Panca Dahana,Penerbit Buku Kompas,8,27,2
+123,Kucing Kiyoko,kucing-kiyoko,Rama Dira,Tuk Padas Publishing,6,3,2
+124,Parang Tak Berulu,parang-tak-berulu,Raudal Tanjung Banua,PT Gramedia Pustaka Utama,9,20,2
+125,Aksara Amananunna,aksara-amananunna,Rio Johan,Kepustakaan Populer Gramedia,9,20,2
+126,Sengkarut Meja Makan,sengkarut-meja-makan,Saut Poltak Tambunan,Selasar Pena Talenta,7,21,2
+127,Saksi Mata,saksi-mata,Seno Gumira Ajidarma,Yayasan Bentang Budaya,6,18,2
+128,Pembuangan Phoenix,pembuangan-phoenix,A. Muttaqin,Amper Media & Buku Bianglala,7,7,3
+129,"Tuhan, Kita Begitu Dekat",tuhan-kita-begitu-dekat,Abdul Hadi W.M.,Komodo Books,5,21,3
+130,Potret Panjang Seorang Pengunjung Pantai Sanur,potret-panjang-seorang-pengunjung-pantai-sanur,Abdul Hadi W.M.,PT Dunia Pustaka Jaya,7,19,3
+131,Tergantung pada Angin,tergantung-pada-angin,Abdul Hadi W.M.,Budaya Jaya,5,27,3
+132,Menjadi Penyair Lagi,menjadi-penyair-lagi,Acep Zamzam Noor,Pustaka Azan,6,8,3
+133,Arsitektur Hujan,arsitektur-hujan,Afrizal Malna,Yayasan Bentang Budaya,5,19,3
+134,Sebait Pantun Bujang,sebait-pantun-bujang,Agit Yogi Subandi,Dewan Kesenian Lampung,8,26,3
+135,Lumbung Perjumpaan,lumbung-perjumpaan,Agus R. Sarjono,Komodo Books,7,25,3
+136,Sembahyang Rumputan,sembahyang-rumputan,Ahmadun Yosi Herfanda,Yayasan Bentang Budaya,8,11,3
+137,Nyanyi Sunyi,nyanyi-sunyi,Amir Hamzah,Dian Rakyat,8,25,3
+138,Memento,memento,Arif Bagus Prasetyo,Arti Foundation,7,25,3
+139,Perempuan yang Dihapus Namanya,perempuan-yang-dihapus-namanya,Avianti Armand,a publication,9,19,3
+140,Aku Ini Binatang Jalang,aku-ini-binatang-jalang,Chairil Anwar,PT Gramedia Pustaka Utama,7,22,3
+141,Golf untuk Rakyat,golf-untuk-rakyat,Darmanto Jatman,Yayasan Bentang Budaya,7,6,3
+142,Odong-Odong Fort de Kock,odong-odong-fort-de-kock,Deddy Arsya,Kabarita,5,21,3
+143,Nikah Ilalang,nikah-ilalang,Dorothea Rosa Herliany,IndonesiaTera,7,28,3
+144,Sesobek Buku Harian Indonesia,sesobek-buku-harian-indonesia,Emha Ainun Najib,Yayasan Bentang Budaya,8,29,3
+145,Soempah WTS,soempah-wts,F. Rahardi,Puisi Indonesia,5,27,3
+146,Sajak-Sajak Lengkap 1961--2001,sajak-sajak-lengkap-1961-2001,Goenawan Mohamad,Metafor Publishing,8,7,3
+147,Buwun,buwun,H.U. Mardi Luhung,Pustaka Pujangga,8,22,3
+148,Wajah Kita,wajah-kita,Hamid Jabbar,PT Balaia Pustaka,8,24,3
+149,Etsa,etsa,Hartoyo Andangjaya,-,5,16,3
+150,Perempuan-Perempuan Perkasa,perempuan-perempuan-perkasa,Hartoyo Andangjaya,-,5,21,3
+151,Orgasmaya,orgasmaya,Hasan Aspahani,Yayasan Sagang,5,27,3
+152,Ziarah Tanah Jawa,ziarah-tanah-jawa,Iman Budi Santoso,Penerbit Intan Cendekia,8,6,3
+153,Syair Pemanggul Mayat,syair-pemanggul-mayat,Indra Tjahyadi,Yayasan Seni Surabaya dan Selasar Surabaya Publishing,7,0,3
+154,Gema Secuil Batu,gema-secuil-batu,Iswadi Pratama,Akar Indonesia,5,2,3
+155,Di Bawah Kibaran Sarung,di-bawah-kibaran-sarung,Joko Pinurbo,PT Gramedia Pustaka Utama,7,22,3
+156,Kepada Cium,kepada-cium,Joko Pinurbo,PT Gramedia Pustaka Utama,8,20,3
+157,Romansa Perjalanan,romansa-perjalanan,Kirjomulyo,Pustaka Jaya,5,20,3
+158,Antologi Puisi Indonesia,antologi-puisi-indonesia,Kumpulan Penulis,Lontar,7,5,3
+159,Antologi Puisi Indonesia Modern: Tonggak IV,antologi-puisi-indonesia-modern-tonggak-iv,Kumpulan Penulis,PT Gramedia Pustaka Utama,6,14,3
+160,Langit Kelabu,langit-kelabu,Linus Suryadi,PT Balai Pustaka,6,26,3
+161,Pengakuan Pariyem,pengakuan-pariyem,Linus Suryadi,Kepustakaan Populer Gramedia,5,27,3
+162,Dahsyatnya Letusan Krakatau 1883 -- Syair Lampung Karam,dahsyatnya-letusan-krakatau-1883-syair-lampung-karam,Muhamad Saleh,KPSP (Komunitas Penggiat Sastra Padang),9,12,3
+163,Sajak Balsem,sajak-balsem,Mustofa Bisri,Pustaka Firdaus,7,21,3
+164,Jantung Lebah Ratu,jantung-lebah-ratu,Nirwan Dewanto,PT Gramedia Pustaka Utama,8,9,3
+165,Priangan Si Jelita,priangan-si-jelita,Ramadhan K.H.,IndonesiaTera,9,13,3
+166,Ballada Orang-Orang Tercinta,ballada-orang-orang-tercinta,Rendra,Pustaka Jaya,9,6,3
+167,Kolam,kolam,Sapardi Djoko Damono,Editum,9,19,3
+168,Dukamu Abadi,dukamu-abadi,Sapardi Djoko Damono,Pustaka Jaya,6,21,3
+169,Dongeng Anjing Api,dongeng-anjing-api,Sindu Putra,Arti Foundation,5,24,3
+170,Kelenjar Bekisar Jantan/Persetubuhan Liar,kelenjar-bekisar-jantanpersetubuhan-liar,Sitok Srengenge,-,6,24,3
+171,Surat Kertas Hijau,surat-kertas-hijau,Sitor Situmorang,Dian Rakyat,9,18,3
+172,Hari dan Hara,hari-dan-hara,Subagio Sastrowardojo,PT Balai Pustaka,7,22,3
+173,Simfoni,simfoni,Subagio Sastrowardojo,PT Balai Pustaka,7,6,3
+174,O Amuk Kapak,o-amuk-kapak,Sutardji Calzoum Bachri,Sinar Harapan,6,22,3
+175,Debu Atas Debu,debu-atas-debu,Taufiq Ismail,Horison,8,12,3
+176,Malu (Aku) Jadi Orang Indonesia,malu-aku-jadi-orang-indonesia,Taufiq Ismail,Yayasan Ananda,6,0,3
+177,Tangan yang Lain,tangan-yang-lain,Tia Setiadi,Interlude,8,1,3
+178,Selendang Pelangi,selendang-pelangi,Toeti Heraty,IndonesiaTera,6,16,3
+179,Catatan Si Pemabuk,catatan-si-pemabuk,Wendoko,Genta Books,9,2,3
+180,Nyanyian Akar Rumput,nyanyian-akar-rumput,Wiji Thukul,PT Gramedia Pustaka Utama,5,25,3
+181,Lagu Cinta Para Pendosa,lagu-cinta-para-pendosa,Zaim Rofiqi,Kelompok Pustaka Alvabet,8,4,3
+182,"Bantalku Ombak, Selimutku Angin",bantalku-ombak-selimutku-angin,Zawawi Imron,Gama Media,9,28,3
+183,Postkolonial dan Wisata Sejarah,postkolonial-dan-wisata-sejarah,Zeffrey Alkatiri,Padasan,8,24,3
+184,Paus Merah Jambu,paus-merah-jambu,Zen Hae,Akar Indonesia,8,27,3
+185,Rumah Kawin,rumah-kawin,Zen Hae,KataKita,6,15,3
+186,Nyanyi Sunyi Seorang Bisu,nyanyi-sunyi-seorang-bisu,Pramoedya Ananta Toer,Lentera Dipantara,7,0,4
+187,Catatan Pinggir,catatan-pinggir,Goenawan Mohamad,Pusat Data & Analisa Tempo,9,4,5
+188,Djoko Tarub (Antologi Drama Indonesia Jilid 4: 1969-- 2000),djoko-tarub-antologi-drama-indonesia-jilid-4-1969-2000,Akudhiat,Amanah-Lontar,6,20,6
+189,Lukisan Masa (Antologi Drama Indonesia Jilid 2: 1931-- 1945),lukisan-masa-antologi-drama-indonesia-jilid-2-1931-1945,Armijn Pane,Amanah-Lontar,8,2,6
+190,Sobrat,sobrat,Arthur S. Nalan,-,5,3,6
+191,Mahkamah,mahkamah,Asrul Sani,-,7,17,6
+192,Bertiga: Lakon Satu Babak,bertiga-lakon-satu-babak,Joned Suryatmoko,Lontar editorial team,7,21,6
+193,Malam Jahanam (Antologi Drama Indonesia Jilid 3: 1946--1968),malam-jahanam-antologi-drama-indonesia-jilid-3-1946-1968,Motinggo Busye,Amanah-Lontar,8,20,6
+194,Opera Kecoa (Antologi Drama Indonesia Jilid 4: 1969-- 2000),opera-kecoa-antologi-drama-indonesia-jilid-4-1969-2000,Nano Riantiarno,Amanah-Lontar,7,11,6
+195,Aduh (Antologi Drama Indonesia Jilid 4: 1969--2000),aduh-antologi-drama-indonesia-jilid-4-1969-2000,Putu Wijaya,Amanah-Lontar,8,4,6
+196,Marsinah Menggugat (Antologi Drama Indonesia Jilid 4: 1969--2000),marsinah-menggugat-antologi-drama-indonesia-jilid-4-1969-2000,Ratna Sarumpaet,Amanah-Lontar,5,1,6
+197,Mastadon dan Burung Kondor (Antologi Drama Indonesia Jilid 4: 1969--2000),mastadon-dan-burung-kondor-antologi-drama-indonesia-jilid-4-1969-2000,Rendra,Amanah-Lontar,8,14,6
+198,Bebasari (Antologi Drama Indonesia Jilid 2: 1931-- 1945),bebasari-antologi-drama-indonesia-jilid-2-1931-1945,Roestam Effendi,Amanah-Lontar,5,10,6
+199,Sandhyakala Ning Majapahit,sandhyakala-ning-majapahit,Sanoesi Pane,PT Dunia Pustaka Jaya,9,6,6
+200,Kumpulan cerpen dan puisi dari pengarang muda yang pernah tampil di UWRF,kumpulan-cerpen-dan-puisi-dari-pengarang-muda-yang-pernah-tampil-di-uwrf,Kumpulan Penulis Muda UWRF,Lontar dan Ubud Writers and Readers Festival,5,4,7
+201,Syekh Siti Jenar: Pergumulan Islam-Jawa,syekh-siti-jenar-pergumulan-islam-jawa,Abdul Munir Mulkhan,Yayasan Bentang Budaya,9,21,8
+202,Polemik Kebudayaan: Pergulatan Pemikiran Terbesar dalam Sejarah Kebangsaan Indonesia,polemik-kebudayaan-pergulatan-pemikiran-terbesar-dalam-sejarah-kebangsaan-indonesia,Achdiat K. Mihadja,PT Balai Pustaka,8,28,8
+203,Ekspedisi Kompas: Hidup Mati di Negeri Cincin Api,ekspedisi-kompas-hidup-mati-di-negeri-cincin-api,Ahmad Arif,Penerbit Buku Kompas,5,23,8
+204,Jaringan Ulama: Timur Tengah dan Kepulauan Nusantara abad XVII dan XVIII,jaringan-ulama-timur-tengah-dan-kepulauan-nusantara-abad-xvii-dan-xviii,Azyumardi Azra,Kencana,5,21,8
+205,Sukarno: Arsitek Bangsa,sukarno-arsitek-bangsa,Bob Hering,KITLV Jakarta /Penerbit Buku Kompas,8,18,8
+206,Timor Timur: Satu Menit Terakhir,timor-timur-satu-menit-terakhir,CM Rien Kuntari,Penerbit Mizan Pustaka,5,10,8
+207,Cendikiawan dan Kekuasan,cendikiawan-dan-kekuasan,Daniel dhakidae,PT Gramedia Pustaka Utama,8,14,8
+208,Mohamad Hatta: Hati Nurani Bangsa,mohamad-hatta-hati-nurani-bangsa,Deliar Noer,KITLV Jakarta/Penerbit Buku Kompas,6,17,8
+209,Siti Rohana Koedoes: Perempuan Sumatera Barat,siti-rohana-koedoes-perempuan-sumatera-barat,Fitriyanti,Jurnal Perempuan,5,27,8
+210,Soegija Si Anak Betlehem Van Java,soegija-si-anak-betlehem-van-java,"G. Budi Subanar, SJ",Kanisius,5,2,8
+211,Politik Lingkungan: Pengelolaan Hutan Masa Orde Baru dan Reformasi,politik-lingkungan-pengelolaan-hutan-masa-orde-baru-dan-reformasi,Herman Hidayat,Yayasan Pustaka Obor Indonesia,6,20,8
+212,Ilmu Gaib di Kalimantan Barat,ilmu-gaib-di-kalimantan-barat,Hermansyah,Kepustakaan Populer Gramedia,6,14,8
+213,Batik: Sebuah Lakon,batik-sebuah-lakon,Iwan Tirta,PT Gaya Favorit Press,6,1,8
+214,Hubungan Indonesia-Cina Dalam Dinamika Politik,hubungan-indonesia-cina-dalam-dinamika-politik,Lidya Christin Sinaga (ed.),LIPI,6,13,8
+215,Aroma rasa kuliner Indonesia: Aneka Olahan Rendang,aroma-rasa-kuliner-indonesia-aneka-olahan-rendang,Lily T. Erwin,PT Gramedia Pustaka Utama,6,24,8
+216,Jangan Tulis Kami Teroris,jangan-tulis-kami-teroris,Linda Christanty,Kepustakaan Populer Gramedia,7,7,8
+217,Kepulauan Rempah-Rempah,kepulauan-rempah-rempah,M. Adnan Amal,Kepustakaan Populer Gramedia,8,1,8
+218,Membumikan Al-Quran: Fungsi dan Peran Wahyu dalam Kehidupan Masyarakat,membumikan-al-quran-fungsi-dan-peran-wahyu-dalam-kehidupan-masyarakat,M. Quraish Shihab,Penerbit Mizan Pustaka,8,11,8
+219,Sejarah Kebudayaan Indonesia: Arsitektur,sejarah-kebudayaan-indonesia-arsitektur,Mukhlis PaEni (Editor Umum),Rajawali Pers,7,19,8
+220,"Sejarah Kebudayaan Indonesia: Bahasa, Sastra, dan Aksara",sejarah-kebudayaan-indonesia-bahasa-sastra-dan-aksara,Mukhlis PaEni (Editor Umum),Rajawali Pers,6,20,8
+221,Sejarah Kebudayaan Indonesia: Religi dan Falsafah,sejarah-kebudayaan-indonesia-religi-dan-falsafah,Mukhlis PaEni (Editor Umum),Rajawali Pers,8,20,8
+222,Sejarah Kebudayaan Indonesia: Seni Rupa dan Desain,sejarah-kebudayaan-indonesia-seni-rupa-dan-desain,Mukhlis PaEni (Editor Umum),Rajawali Pers,7,9,8
+223,Sejarah Kebudayaan Indonesia: Sistem Sosial,sejarah-kebudayaan-indonesia-sistem-sosial,Mukhlis PaEni (Editor Umum),Rajawali Pers,9,5,8
+224,Islam dan Hak Asasi Manusia: Konsep dan Implementasi,islam-dan-hak-asasi-manusia-konsep-dan-implementasi,Musdah Mulia,Naufan Pustaka,8,10,8
+225,Islam Agama Kemanusiaan,islam-agama-kemanusiaan,Nurcholish Madjid,Paramadina,8,12,8
+226,Menjadi Indonesia,menjadi-indonesia,Parakitri,Penerbit Buku Kompas,6,11,8
+227,Menerawang Indonesia Pada Dasawarsa Ketiga Abad Ke-21,menerawang-indonesia-pada-dasawarsa-ketiga-abad-ke-21,"Prof. (Emeritus) Dorodjatun Kuntjoro-Jakti, Ph.D.",Pustaka Alvabet,9,25,8
+228,Bali Menggugat,bali-menggugat,Putu Setia,Kepustakaan Populer Gramedia,8,17,8
+229,Sjahrir: Demokrat Sejati Pejuang Kemanusiaan 1906-- 1966,sjahrir-demokrat-sejati-pejuang-kemanusiaan-1906-1966,Rosihan Anwar,KITLV  Jakarta/Penerbit Buku Kompas,9,11,8
+230,Pemberontakan Petani di Banten 1888,pemberontakan-petani-di-banten-1888,Sartono Kartodirdjo,Pustaka Jaya,5,10,8
+231,Madilog,madilog,Tan Malaka,-,7,23,8
+232,Kitab Masakan Nusantara: Kumpulan Resep Pilihan dari Aceh sampai Papua,kitab-masakan-nusantara-kumpulan-resep-pilihan-dari-aceh-sampai-papua,Tim Dapur Demedia,Transmedia,7,29,8
+233,Melihat Indonesia: Ekspedisi Sabang-?Merauke,melihat-indonesia-ekspedisi-sabang-merauke,Tim Kompas,Penerbit Buku Kompas,5,14,8
+234,Wastu Citra,wastu-citra,YB Mangunwijaya,PT Gramedia Pustaka Utama,8,23,8
+235,Pesan dari Wae Rebo,pesan-dari-wae-rebo,Yori Antar,PT Gramedia Pustaka Utama,7,28,8
+236,Negara Paripurna,negara-paripurna,Yudi Latif,PT Gramedia Pustaka Utama,5,5,8
+237,IPPHOS: Remastered,ipphos-remastered,Yudi Soerjoatmodjo,Galeri Foto Jurnalistik Antara,5,24,8
+238,Cerita Rakyat dari Sumatra Barat 2,cerita-rakyat-dari-sumatra-barat-2,A.A Navis,Grasindo,8,5,9
+239,Nyi Bungsu Rarang: Dongeng Sunda Buhun,nyi-bungsu-rarang-dongeng-sunda-buhun,Ajip Rosidi,Kiblat,6,10,9
+240,Si Doel Anak Jakarta,si-doel-anak-jakarta,Aman,PT Balai Pustaka,7,2,9
+241,Dongeng Mini Nusantara (Serial 5 judul),dongeng-mini-nusantara-serial-5-judul,Anton Tri,PT Bhuana Ilmu Populer,8,1,9
+242,Keluarga Bahagia,keluarga-bahagia,Arswendo Atmowiloto,Grasindo,7,26,9
+243,Keluarga Cemara #1,keluarga-cemara-1,Arswendo Atmowiloto,PT Gramedia Pustaka Utama,9,18,9
+244,Keluarga Cemara #2,keluarga-cemara-2,Arswendo Atmowiloto,PT Gramedia Pustaka Utama,9,1,9
+245,Si Leungli,si-leungli,Baby & Mad Yusup,PT Gramedia Pustaka Utama,5,13,9
+246,Kiambang Bertaut,kiambang-bertaut,C.M Nas,PT Balai Pustaka,6,14,9
+247,Kumpulan Dongeng Klasik Nusantara,kumpulan-dongeng-klasik-nusantara,Cerviena Susilo,PT Elex Media Komputindo,5,10,9
+248,Ahli Jungkir Balik: Specialist in Somersault,ahli-jungkir-balik-specialist-in-somersault,Debora Toety Maklis,PT BPK Gunung Mulia,5,27,9
+249,Anak Rembulan: Negeri Misteri di Balik Pohon Kenari,anak-rembulan-negeri-misteri-di-balik-pohon-kenari,Djoko Lelono,Penerbit Mizan,7,14,9
+250,Seri Hikayat Rakyat Nusantara,seri-hikayat-rakyat-nusantara,K. Usman,Bumi Aksara,9,13,9
+251,Bulan Bolong,bulan-bolong,Lukman Hakim,Katulistiwa,7,11,9
+252,Ucok dan Si Pelor: Menjinakkan Kerbau Liar,ucok-dan-si-pelor-menjinakkan-kerbau-liar,Mansur Samin,Gunung Jati,8,24,9
+253,Semasa Kecil di Kampung 1: Anak Danau Singkarak,semasa-kecil-di-kampung-1-anak-danau-singkarak,Muhammad Rajab,PT Balai Pustaka,7,9,9
+254,Semasa Kecil di Kampung 2: Mengaji di Pesantren,semasa-kecil-di-kampung-2-mengaji-di-pesantren,Muhammad Rajab,PT Balai Pustaka,6,3,9
+255,Semasa Kecil di Kampung 3: Melawat ke Sulit Air,semasa-kecil-di-kampung-3-melawat-ke-sulit-air,Muhammad Rajab,PT Balai Pustaka,9,25,9
+256,Si Pai Bengal,si-pai-bengal,Nasjah Djamin,PT Balai Pustaka,7,22,9
+257,Fatahillah: Pahlawan Kota Jakarta,fatahillah-pahlawan-kota-jakarta,Rachma Ali,PT Balai Pustaka,6,17,9
+258,Bukti Cinta Takatuliang: Cerita Rakyat Indonesia (Sulawesi),bukti-cinta-takatuliang-cerita-rakyat-indonesia-sulawesi,Rahmah Asa,Pustaka Utama Grafiti,6,2,9
+259,Panji Semirang,panji-semirang,S. Sastrawinata,PT Balai Pustaka,5,25,9
+260,Masa Kecil Putra Sang Fajar: 1901--1916,masa-kecil-putra-sang-fajar-1901-1916,Sari Pusparini,PT Remaja Rosdakarya,8,22,9
+261,Kakek Kami Juga Pejuang,kakek-kami-juga-pejuang,Satyagraha Hoerip,PT Balai Pustaka,7,28,9
+262,Joko Kendil Si Periuk Nasi,joko-kendil-si-periuk-nasi,Suyadi,Grasindo,7,5,9
+263,Serial Anak-Anak Mamak: Amelia,serial-anak-anak-mamak-amelia,Tere-Liye,Penerbit Republika,6,14,9
+264,Serial Anak-Anak Mamak: Burlian,serial-anak-anak-mamak-burlian,Tere-Liye,Penerbit Republika,7,18,9
+265,Serial Anak-Anak Mamak: Eliana,serial-anak-anak-mamak-eliana,Tere-Liye,Penerbit Republika,7,23,9
+266,Serial Anak-Anak Mamak: Pukat,serial-anak-anak-mamak-pukat,Tere-Liye,Penerbit Republika,7,1,9
+267,Bumi Sambhara,bumi-sambhara,Theresia Citraningtyas,Taman Belajar Eugenia,8,8,9
+268,Arjuna Kembar,arjuna-kembar,Wiroatmodjo,PT Balai Pustaka,9,10,9
+269,Real Masjid 1,real-masjid-1,@tonytrax,Zahira,6,17,10
+270,Wayang Purwa,wayang-purwa,Ardisoma,-,9,27,10
+271,Kitab Komik Sufi: Kumpulan Kisah Sufi dalam Komik,kitab-komik-sufi-kumpulan-kisah-sufi-dalam-komik,Bayu Priambodo (Ibod),PT Gramedia Pustaka Utama,7,21,10
+272,Enjah,enjah,Beng & Tomas,Cendana Art Media,7,16,10
+273,Lagak Jakarta,lagak-jakarta,Benny & Mice,Kepustakaan Populer Gramedia,9,1,10
+274,Tiga Manula Jalan-Jalan ke Pantura,tiga-manula-jalan-jalan-ke-pantura,Benny Rochmadi,Kepustakaan Populer Gramedia,5,12,10
+275,Christina Martha Tiahahu,christina-martha-tiahahu,Delsy Sjamsumar,-,9,3,10
+276,"Komik Cerita Rakyat Indonesia, Jilid 1: Sumatera, Bali, dan Nusa Tenggara",komik-cerita-rakyat-indonesia-jilid-1-sumatera-bali-dan-nusa-tenggara,Dian K. dan Tethy Ezokanzo,PT Bhuana Ilmu Populer,5,20,10
+277,"Komik Cerita Rakyat Indonesia, Jilid 2: Jawa, Maluku, dan Papua",komik-cerita-rakyat-indonesia-jilid-2-jawa-maluku-dan-papua,Dian K. dan Tethy Ezokanzo,PT Bhuana Ilmu Populer,6,19,10
+278,SI Buta dari Gua Hantu: Banjir Darah di Pantai Sanur,si-buta-dari-gua-hantu-banjir-darah-di-pantai-sanur,Ganes Th.,Pustaka Satria Sejati,5,25,10
+279,Dagelan Petruk-Gareng,dagelan-petruk-gareng,Indri Soedono,CV Loka Tjipta Semarang,5,10,10
+280,Garudayana Saga I,garudayana-saga-i,Is Yuniarto,Penerbit Mizan,6,8,10
+281,Garudayana Saga III,garudayana-saga-iii,Is Yuniarto,Penerbit Mizan,8,24,10
+282,Wind Rider: Sky Age,wind-rider-sky-age,Is Yuniarto,Gramedia m&c!,8,29,10
+283,"Kau Sudah Wanita, Flora",kau-sudah-wanita-flora,Jan Mintaraga,-,9,6,10
+284,Wiro,wiro,Kwik Ing Hoo & Lie Djoen Liem,Liong Semarang,9,13,10
+285,Sie Djin Koei Tjeng Tang,sie-djin-koei-tjeng-tang,Otto Suastika,-,6,26,10
+286,Mantra,mantra,R. Amdani dan Azisa Noor,Penerbit Mizan,5,3,10
+287,Mahabharata,mahabharata,R.A. Kosasih,-,6,20,10
+288,Ramayana,ramayana,R.A. Kosasih,-,9,16,10
+289,Hikayat Musang Berjanggut,hikayat-musang-berjanggut,Taguan Hardjo,Grafiti,6,14,10
+290,Trilogi Sandhora,trilogi-sandhora,Teguh Santosa,-,8,10,10
+291,Islam Sehari-hari,islam-sehari-hari,Vbi Djenggotten,Qultum Media,5,13,10
+292,Merak Jingga,merak-jingga,Zam Nuldyn,-,6,19,10
