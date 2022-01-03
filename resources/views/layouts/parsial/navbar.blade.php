@@ -69,7 +69,7 @@
             </li>
             <li
                 class="menu-item  ">
-                <a href="index.html" class='menu-link text-warning'>
+                <a href="{{ route('peminjaman-buku') }}" class='menu-link {{ Request::is('peminjaman-buku') ? 'text-white' : 'text-warning' }}'>
                     <i class="bi bi-book-half"></i>
                     <span>Peminjaman Buku</span>
                 </a>

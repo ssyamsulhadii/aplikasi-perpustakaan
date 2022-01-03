@@ -19,8 +19,8 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="dropdownMenuButton1">
-                      <li><a class="dropdown-item" href="{{ route('profil') }}">Profil Saya</a></li>
-                      <li><a class="dropdown-item" href="{{ route('ganti-password') }}">Ganti Password</a></li>
+                      <li><a class="dropdown-item" href="{{ route('umum.profil') }}">Profil Saya</a></li>
+                      <li><a class="dropdown-item" href="{{ route('umum.ganti-password') }}">Ganti Password</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li>
                           <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout') }}">Keluar</a>
