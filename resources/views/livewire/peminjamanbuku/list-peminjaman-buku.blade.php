@@ -44,7 +44,7 @@
                                         <span wire:click.prevent="distroy('{{ $peminjaman->id }}')" role="button" class="badge bg-danger p-2">
                                             <i class="bi bi-trash-fill" style="font-size: 15px"></i>
                                         </span>
-                                        <span role="button" class="badge bg-success p-2">
+                                        <span wire:click.prevent="edit('{{ $peminjaman->id }}')" role="button" class="badge bg-success p-2">
                                             <i class="bi bi-pencil-square" style="font-size: 15px"></i>
                                         </span>
                                     </div>
@@ -149,7 +149,7 @@
 
 
                         <div class="form-group">
-                            <div class="col-3">
+                            <div class="col-4">
                                 <input wire:model.defer="state.jumlah_pinjam" type="text" placeholder="Jumlah Pinjam" class="form-control @error('state.jumlah_pinjam') is-invalid @enderror">
                             </div>
                         </div>
@@ -159,12 +159,6 @@
                             <i class="bi bi-arrow-left-square d-block d-sm-none" style="margin-bottom: 5px"></i>
                             <span class="d-none d-sm-block">Tidak Jadi</span>
                         </button>
-                        @if ($peminjamanItem)
-                        <a wire:click.prevent="distroy" class="btn btn-danger">
-                            <i class="bi bi-x-square d-block d-sm-none" style="margin-bottom: 5px"></i>
-                            <span class="d-none d-sm-block">Hapus</span>
-                        </a>
-                        @endif
                         <button  class="btn btn-primary ml-1">
                             <i class="bi bi-save2 d-block d-sm-none" style="margin-bottom: 5px"></i>
                             <span class="d-none d-sm-block">

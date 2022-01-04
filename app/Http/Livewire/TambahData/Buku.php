@@ -22,7 +22,7 @@ class Buku extends Component
     public function render()
     {
         return view('livewire.tambah-data.buku', [
-            'buku_' => ModelsBuku::latest()->limit(20)->paginate(5),
+            'buku_' => ModelsBuku::OrderBy('judul')->latest()->limit(20)->paginate(5),
             'kategori_' => Kategori::has('rak')->get()->sortBy('rak.nama'),
         ]);
     }
