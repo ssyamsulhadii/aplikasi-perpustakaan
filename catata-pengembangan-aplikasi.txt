@@ -2,6 +2,7 @@
 - ketika menghapus data parent maka putuskan saja hubungan relasi sehingga nilai child menjadil null
 - membuat helper method untuk memberitahu link active pada navbar
 
+
 ##menu anggota
 - menambahkan pagination dengan seracging
 
@@ -15,3 +16,4 @@
 - menambahkan input image
 - menambahkan checkboox untuk melakukan (hapus banyak data / perbarui ke kategori ...)
 - tampilkan data buku berdasarkan kategori
+- hapus data buku untuk gambar belum terhapus
