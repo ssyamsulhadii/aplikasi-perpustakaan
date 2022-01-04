@@ -41,7 +41,7 @@
                                 </td>
                                 <td class="text-center">
                                     <div style="width: 6em;">
-                                        <span role="button" class="badge bg-danger p-2">
+                                        <span wire:click.prevent="distroy('{{ $peminjaman->id }}')" role="button" class="badge bg-danger p-2">
                                             <i class="bi bi-trash-fill" style="font-size: 15px"></i>
                                         </span>
                                         <span role="button" class="badge bg-success p-2">

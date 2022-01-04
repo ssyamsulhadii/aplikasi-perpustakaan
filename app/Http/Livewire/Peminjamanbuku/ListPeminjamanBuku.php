@@ -98,5 +98,14 @@ class ListPeminjamanBuku extends Component
         }
     }
 
-    //
+    public function distroy(Peminjaman $peminjaman)
+    {
+        $buku = \App\Models\Buku::find($peminjaman->buku_id);
+        $jumlah_buku = $buku->stok + $peminjaman->qty;
+        $buku->update(['jumlah' => $jumlah_buku, 'dibaca' => $buku->dibaca - 1]);
+        $peminjaman->delete();
+        $this->dispatchBrowserEvent('pesan', [
+            'teks' => "Data peminjaman berhasil dihapus.",
+        ]);
+    }
 }
