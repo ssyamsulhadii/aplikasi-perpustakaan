@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Anggota;
 use App\Models\Kategori;
+use App\Models\Peminjaman;
 use App\Models\PeminjamanBuku;
+use App\Models\Pengembalian;
 use App\Models\PengembalianBuku;
 use App\Models\Rak;
 use App\Models\User;
@@ -28,13 +30,13 @@ class DatabaseSeeder extends Seeder
         $user = User::where('level', 'anggota')->get();
         $user->map(fn ($user) => Anggota::create(['user_id' => $user->id]));
 
-        PeminjamanBuku::factory(10)->create();
+        Peminjaman::factory(10)->create();
 
-        $peminjamanbuku_ = PeminjamanBuku::all();
+        $peminjamanbuku_ = Peminjaman::all();
         foreach ($peminjamanbuku_ as $peminjamanbuku) {
-            PengembalianBuku::create([
-                'kode' => str_replace('PMJ', 'PGN', $peminjamanbuku->kode),
-                'peminjamanbuku_id' => $peminjamanbuku->id,
+            Pengembalian::create([
+                'kode' => substr($peminjamanbuku->kode, 4, 3),
+                'peminjaman_id' => $peminjamanbuku->id,
             ]);
         }
     }
