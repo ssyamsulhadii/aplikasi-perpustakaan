@@ -41,12 +41,20 @@
                                 </td>
                                 <td class="text-center">
                                     <div style="width: 6em;">
-                                        <span wire:click.prevent="distroy('{{ $peminjaman->id }}')" role="button" class="badge bg-danger p-2">
-                                            <i class="bi bi-trash-fill" style="font-size: 15px"></i>
-                                        </span>
-                                        <span wire:click.prevent="edit('{{ $peminjaman->id }}')" role="button" class="badge bg-success p-2">
-                                            <i class="bi bi-pencil-square" style="font-size: 15px"></i>
-                                        </span>
+                                        @if ($peminjaman->status)
+                                            <a href="{{ route('pengembalian-buku') }}">
+                                                <span class="badge p-2" style="background: peru">
+                                                    <i class="bi bi-signpost" style="font-size: 15px"></i>
+                                                </span>
+                                            </a>
+                                        @else
+                                            <span wire:click.prevent="distroy('{{ $peminjaman->id }}')" role="button" class="badge bg-danger p-2">
+                                                <i class="bi bi-trash-fill" style="font-size: 15px"></i>
+                                            </span>
+                                            <span wire:click.prevent="edit('{{ $peminjaman->id }}')" role="button" class="badge bg-success p-2">
+                                                <i class="bi bi-pencil-square" style="font-size: 15px"></i>
+                                            </span>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

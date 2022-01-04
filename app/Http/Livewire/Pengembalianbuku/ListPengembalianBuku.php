@@ -90,4 +90,21 @@ class ListPengembalianBuku extends Component
             'teks' => "Data peminjaman sudah terkonfirmasi.",
         ]);
     }
+
+    public function pulihkan(Pengembalian $pengembalian)
+    {
+        $pengembalian->update([
+            'denda' => null,
+            'tanggal_kembali' => null,
+            'tanggal_kembali_over' => null,
+        ]);
+        $pengembalian->peminjaman->update([
+            'status' => 0
+        ]);
+        $buku = \App\Models\Buku::find($pengembalian->peminjaman->buku->id);
+        $buku->update(['jumlah' => $buku->jumlah - $pengembalian->peminjaman->jumlah_pinjam]);
+        $this->dispatchBrowserEvent('pesan', [
+            'teks' => "Data pengembalian berhasil dipulihkan.",
+        ]);
+    }
 }

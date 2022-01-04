@@ -31,6 +31,9 @@
                                         <span wire:click.prevent="pesan" role="button" class="badge bg-primary p-2">
                                             <i class="bi bi-check2-all" style="font-size: 20px"></i>
                                         </span>
+                                        <span wire:click.prevent="pulihkan('{{ $pengembalian->id }}')" role="button" class="badge bg-warning p-2">
+                                            <i class="bi bi-shift" style="font-size: 20px"></i>
+                                        </span>
                                     @else
                                         <span wire:click.prevent="konfirmasi('{{ $pengembalian->id }}')" role="button" class="badge bg-primary p-2">
                                             <i class="bi bi-check2-all" style="font-size: 20px"></i>
