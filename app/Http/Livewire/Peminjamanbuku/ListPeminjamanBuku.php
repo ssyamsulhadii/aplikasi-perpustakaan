@@ -28,6 +28,11 @@ class ListPeminjamanBuku extends Component
         'state.tanggal_kembali' => 'required|date',
         'state.jumlah_pinjam' => 'required|integer',
     ];
+    public function propertiReset()
+    {
+        $this->reset(['peminjamanItem', 'peminjaman', 'bulan', 'state', 'stateTanggal', 'rules']);
+        $this->resetValidation();
+    }
 
     public function render()
     {
@@ -41,8 +46,7 @@ class ListPeminjamanBuku extends Component
 
     public function create()
     {
-        $this->reset();
-        $this->resetValidation();
+        $this->propertiReset();
         $tanggal = new Carbon;
         $this->stateTanggal = [
             'tanggal_pinjam' => $tanggal->isoFormat('DD'),
@@ -82,8 +86,7 @@ class ListPeminjamanBuku extends Component
             $pengembalian->kode = $this->state['kode'];
             $peminjaman->pengembalian_()->save($pengembalian);
 
-            $this->reset();
-            $this->resetValidation();
+            $this->propertiReset();
             $this->emit('hideModal');
             $this->dispatchBrowserEvent('pesan', ['teks' => "Data buku berhasil ditambahkan."]);
         } else {
@@ -107,8 +110,7 @@ class ListPeminjamanBuku extends Component
 
     public function edit(Peminjaman $peminjaman)
     {
-        $this->reset();
-        $this->resetValidation();
+        $this->propertiReset();
         $this->dispatchBrowserEvent('show-form-modal');
         $this->peminjamanItem = true;
         $this->peminjaman = $peminjaman;

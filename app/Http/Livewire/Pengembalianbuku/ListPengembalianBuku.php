@@ -20,11 +20,15 @@ class ListPengembalianBuku extends Component
     {
         return view('livewire.pengembalianbuku.list-pengembalian-buku', ['pengembalian_' => Pengembalian::latest()->paginate(5)]);
     }
-
+    public function propertiReset()
+    {
+        $this->reset(['pengembalian', 'bulan', 'state', 'stateTanggal', 'tanggal_kembali_over']);
+        $this->resetValidation();
+    }
     public function konfirmasi(Pengembalian $pengembalian)
     {
-        $this->reset();
-        $this->resetValidation();
+        $this->propertiReset();
+
         $this->bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         $this->pengembalian = $pengembalian;
 

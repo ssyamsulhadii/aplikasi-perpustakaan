@@ -19,6 +19,11 @@ class Buku extends Component
     public $buku = null;
     public $sampul;
     public $urlEditSampul;
+    public function propertiReset()
+    {
+        $this->reset(['bukuItem', 'state', 'buku', 'sampul', 'urlEditSampul']);
+        $this->resetValidation();
+    }
     public function render()
     {
         return view('livewire.tambah-data.buku', [
@@ -29,8 +34,7 @@ class Buku extends Component
 
     public function create()
     {
-        $this->reset();
-        $this->resetValidation();
+        $this->propertiReset();
         $this->dispatchBrowserEvent('show-form-modal');
     }
     public function validatedData()
@@ -62,8 +66,7 @@ class Buku extends Component
             $validatedData = $this->validatedData();
         }
         ModelsBuku::create($validatedData);
-        $this->reset();
-        $this->resetValidation();
+        $this->propertiReset();
         $this->emit('hideModal');
         $this->dispatchBrowserEvent('pesan', ['teks' => "Data buku berhasil ditambahkan."]);
     }
@@ -71,8 +74,7 @@ class Buku extends Component
     public function edit(ModelsBuku $buku)
     {
 
-        $this->reset();
-        $this->resetValidation();
+        $this->propertiReset();
         $this->bukuItem = true;
         $this->buku = $buku;
         $this->dispatchBrowserEvent('show-form-modal');
@@ -97,8 +99,7 @@ class Buku extends Component
             $validatedData = $this->validatedData();
         }
         $this->buku->update($validatedData);
-        $this->reset();
-        $this->resetValidation();
+        $this->propertiReset();
         $this->emit('hideModal');
         $this->dispatchBrowserEvent('pesan', ['teks' => "Data buku berhasil diperbarui."]);
     }
