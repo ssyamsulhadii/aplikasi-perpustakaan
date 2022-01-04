@@ -76,7 +76,7 @@
             </li>
             <li
                 class="menu-item  ">
-                <a href="index.html" class='menu-link text-warning'>
+                <a href="{{ route('pengembalian-buku') }}" class='menu-link {{ Request::is('pengembalian-buku') ? 'text-white' : 'text-warning' }}'>
                     <i class="bi bi-book-fill"></i>
                     <span>Pengembalian Buku</span>
                 </a>

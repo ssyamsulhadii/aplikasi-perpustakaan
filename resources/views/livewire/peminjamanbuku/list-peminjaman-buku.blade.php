@@ -77,7 +77,8 @@
                             <select wire:model.defer="state.anggota_id" class="form-select @error('state.anggota_id') is-invalid @enderror"" id="basicSelect">
                                 <option>Pilih Anggota</option>
                                 @foreach ($anggota_ as $anggota)
-                                    <option value="{{ $anggota->anggota->id }}">ID**{{ $anggota->anggota->id }} &ensp; {{ $anggota->nama }}</option>
+                                    <option value="{{ $anggota->anggota->id }}">
+                                        ID{{ str_pad($anggota->anggota->id, 3, '***', STR_PAD_LEFT) }}&ensp;{{ $anggota->nama }}</option>
                                 @endforeach
                             </select>
                         </fieldset>
@@ -121,7 +122,7 @@
                         {{-- tanggal kembali --}}
                         <div class="form-group">
                             <div class="row">
-                                <label for="">Tanggal pinjam</label>
+                                <label for="">Tanggal kembali</label>
                                 <div class="col-4">
                                     <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tanggal_kembali">
                                         @for ($i = 1; $i < 31; $i++)
