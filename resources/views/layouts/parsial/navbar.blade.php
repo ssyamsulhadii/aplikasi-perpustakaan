@@ -1,17 +1,21 @@
 <nav class="main-navbar d-sm-block">
     <div class="container">
         <ul>
-            <li
-                class="menu-item">
-                <a href="{{ route('pengguna') }}" class='menu-link {{ Request::is('pengguna') ? 'text-white' : 'text-warning' }}'>
-                    <i class="bi bi-person-fill"></i>
-                    <span>Pengguna</span>
-                </a>
-            </li>
+            @auth
+                @if (auth()->user()->level == 'admin')
+                    <li
+                    class="menu-item">
+                    <a href="{{ route('pengguna') }}" class='menu-link {{ Request::is('pengguna') ? 'text-white' : 'text-warning' }}'>
+                        <i class="bi bi-person"></i>
+                        <span>Pengguna</span>
+                    </a>
+                </li>
+                @endif
+            @endauth
             <li
                 class="menu-item  has-sub">
                 <a href="#" class='menu-link text-warning {{ Request::is('beranda*') ? 'text-white' : 'text-warning' }}'>
-                    <i class="bi bi-house-fill"></i>
+                    <i class="bi bi-house"></i>
                     <span>Beranda</span>
                 </a>
                 <div
@@ -31,10 +35,12 @@
                     </div>
                 </div>
             </li>
+            @auth
+                @if (auth()->user()->level === 'admin' || auth()->user()->level === 'adminbuku')
             <li
                 class="menu-item  has-sub">
                 <a href="#" class='menu-link {{ Route::is('tambah-data*') ? 'text-white' : 'text-warning' }}'>
-                    <i class="bi bi-grid-fill"></i>
+                    <i class="bi bi-grid"></i>
                     <span>Tambah Data</span>
                 </a>
                 <div
@@ -60,41 +66,64 @@
                     </div>
                 </div>
             </li>
-            <li
-                class="menu-item  ">
-                <a href="{{ route('anggota') }}" class='menu-link {{ Request::is('anggota') ? 'text-white' : 'text-warning' }}'>
-                    <i class="bi bi-file-person-fill"></i>
-                    <span>Anggota</span>
-                </a>
-            </li>
-            <li
-                class="menu-item  ">
-                <a href="{{ route('peminjaman-buku') }}" class='menu-link {{ Request::is('peminjaman-buku') ? 'text-white' : 'text-warning' }}'>
-                    <i class="bi bi-book-half"></i>
-                    <span>Peminjaman Buku</span>
-                </a>
-            </li>
-            <li
-                class="menu-item  ">
-                <a href="{{ route('pengembalian-buku') }}" class='menu-link {{ Request::is('pengembalian-buku') ? 'text-white' : 'text-warning' }}'>
-                    <i class="bi bi-book-fill"></i>
-                    <span>Pengembalian Buku</span>
-                </a>
-            </li>
-            <li
-                class="menu-item  text-warning">
-                <a href="{{ route('list-buku-saya') }}" class='menu-link text-warning {{ Route::is('list-buku-saya') ? 'text-white' : 'text-warning' }}'>
-                    <i class="bi bi-briefcase-fill"></i>
-                    <span>Buku Saya</span>
-                </a>
-            </li>
-            <li
-                class="menu-item  ">
-                <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout') }}" class='menu-link text-warning'>
-                    <i class="bi bi-box-arrow-right"></i>
-                    <span>Keluar </span>
-                </a>
-            </li>
-        </ul>
+                @endif
+            @endauth
+
+            @auth
+                @if (auth()->user()->level === 'admin' || auth()->user()->level === 'admintransaksi')
+                    <li
+                        class="menu-item  ">
+                        <a href="{{ route('anggota') }}" class='menu-link {{ Request::is('anggota') ? 'text-white' : 'text-warning' }}'>
+                            <i class="bi bi-file-person"></i>
+                            <span>Anggota</span>
+                        </a>
+                    </li>
+                    <li
+                        class="menu-item  ">
+                        <a href="{{ route('peminjaman-buku') }}" class='menu-link {{ Request::is('peminjaman-buku') ? 'text-white' : 'text-warning' }}'>
+                            <i class="bi bi-card-text"></i>
+                            <span>Peminjaman Buku</span>
+                        </a>
+                    </li>
+                    <li
+                        class="menu-item  ">
+                        <a href="{{ route('pengembalian-buku') }}" class='menu-link {{ Request::is('pengembalian-buku') ? 'text-white' : 'text-warning' }}'>
+                            <i class="bi bi-card-checklist"></i>
+                            <span>Pengembalian Buku</span>
+                        </a>
+                    </li>
+                @endif
+            @endauth
+            @auth
+                <li
+                    class="menu-item  text-warning">
+                    <a href="{{ route('list-buku-saya') }}" class='menu-link text-warning {{ Route::is('list-buku-saya') ? 'text-white' : 'text-warning' }}'>
+                        <i class="bi bi-briefcase"></i>
+                        <span>Buku Saya</span>
+                    </a>
+                </li>
+                    <li
+                    class="menu-item  ">
+                    <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout') }}" class='menu-link text-warning'>
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Keluar </span>
+                    </a>
+                </li>
+                @endauth
+                @guest
+                <li class="menu-item  ">
+                    <a class='menu-link text-warning' href="{{ route('login') }}">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        <span>Masuk </span>
+                    </a>
+                </li>
+                <li class="menu-item  ">
+                    <a class='menu-link text-warning' href="{{ route('register') }}">
+                        <i class="bi bi-pencil"></i>
+                        <span>Daftar </span>
+                    </a>
+                </li>
+        @endguest
+    </ul>
     </div>
 </nav>

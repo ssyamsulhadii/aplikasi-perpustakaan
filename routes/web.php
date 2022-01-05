@@ -15,18 +15,23 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::get('/', fn () => view('blank-page'))->middleware(['auth', 'verified']);
-Route::get('/', fn () => view('blank-page'))->middleware(['auth']);
-Route::get('profil', Profil::class)->prefix('umum')->name('umum.profil');
-Route::get('ganti-password', GantiPassword::class)->prefix('umum')->name('umum.ganti-password');
-Route::get('pengguna', Pengguna::class)->name('pengguna');
 
-Route::get('rak', TambahDataRak::class)->prefix('tambah-data')->name('tambah-data.rak');
-Route::get('kategori', TambahDataKategori::class)->prefix('tambah-data')->name('tambah-data.kategori');
-Route::get('buku', TambahDataBuku::class)->prefix('tambah-data')->name('tambah-data.buku');
-
-Route::get('anggota', ListAnggota::class)->name('anggota');
-Route::get('peminjaman-buku', ListPeminjamanBuku::class)->name('peminjaman-buku');
-Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku');
-
+Route::get('/', ListBuku::class);
 Route::get('list-buku', ListBuku::class)->prefix('beranda')->name('list-buku');
-Route::get('list-buku-saya', ListBukuSaya::class)->name('list-buku-saya');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('list-buku-saya', ListBukuSaya::class)->name('list-buku-saya');
+    Route::get('profil', Profil::class)->prefix('umum')->name('umum.profil');
+    Route::get('ganti-password', GantiPassword::class)->prefix('umum')->name('umum.ganti-password');
+
+    Route::get('pengguna', Pengguna::class)->name('pengguna')->middleware('IsAdmin');
+
+    Route::get('rak', TambahDataRak::class)->prefix('tambah-data')->name('tambah-data.rak')->middleware('admin.AdminBuku');
+    Route::get('kategori', TambahDataKategori::class)->prefix('tambah-data')->name('tambah-data.kategori')->middleware('admin.AdminBuku');
+    Route::get('buku', TambahDataBuku::class)->prefix('tambah-data')->name('tambah-data.buku')->middleware('admin.AdminBuku');
+
+    Route::get('anggota', ListAnggota::class)->name('anggota')->middleware('admin.AdminTransaksi');
+    Route::get('peminjaman-buku', ListPeminjamanBuku::class)->name('peminjaman-buku')->middleware('admin.AdminTransaksi');
+    Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku')->middleware('admin.AdminTransaksi');
+});
