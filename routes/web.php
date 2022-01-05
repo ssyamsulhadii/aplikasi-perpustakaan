@@ -3,6 +3,7 @@
 use App\Http\Livewire\Admin\Pengguna;
 use App\Http\Livewire\Anggota\ListAnggota;
 use App\Http\Livewire\Beranda\ListBuku;
+use App\Http\Livewire\Bukusaya\ListBukuSaya;
 use App\Http\Livewire\Peminjamanbuku\ListPeminjamanBuku;
 use App\Http\Livewire\Pengembalianbuku\ListPengembalianBuku;
 use App\Http\Livewire\Pengguna\GantiPassword;
@@ -28,3 +29,4 @@ Route::get('peminjaman-buku', ListPeminjamanBuku::class)->name('peminjaman-buku'
 Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku');
 
 Route::get('list-buku', ListBuku::class)->prefix('beranda')->name('list-buku');
+Route::get('list-buku-saya', ListBukuSaya::class)->name('list-buku-saya');

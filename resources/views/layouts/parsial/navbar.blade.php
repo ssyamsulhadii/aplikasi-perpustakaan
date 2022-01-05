@@ -83,7 +83,7 @@
             </li>
             <li
                 class="menu-item  text-warning">
-                <a href="index.html" class='menu-link text-warning'>
+                <a href="{{ route('list-buku-saya') }}" class='menu-link text-warning {{ Route::is('list-buku-saya') ? 'text-white' : 'text-warning' }}'>
                     <i class="bi bi-briefcase-fill"></i>
                     <span>Buku Saya</span>
                 </a>
