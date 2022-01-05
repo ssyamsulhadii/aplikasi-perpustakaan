@@ -10,7 +10,7 @@
             </li>
             <li
                 class="menu-item  has-sub">
-                <a href="#" class='menu-link text-warning'>
+                <a href="#" class='menu-link text-warning {{ Request::is('beranda*') ? 'text-white' : 'text-warning' }}'>
                     <i class="bi bi-house-fill"></i>
                     <span>Beranda</span>
                 </a>
@@ -20,8 +20,8 @@
                         <ul class="submenu-group">
                             <li
                                 class="submenu-item  ">
-                                <a href="table.html"
-                                    class='submenu-link'>Daftar Buku</a>
+                                <a href="{{ route('list-buku') }}"
+                                    class='submenu-link'>Buku</a>
                             </li>
                             <li
                                 class="submenu-item  ">
