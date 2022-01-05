@@ -1,3 +1,4 @@
+@if ($bukusaya_ !== null)
 <div class="col-lg-8 col-md-10 col-12">
     <div class="card">
         <div class="card-header pb-2 pt-3">
@@ -18,7 +19,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($bukusaya_ !== null)
                                 @foreach ($bukusaya_ as $bukusaya)
                                 <tr>
                                     <td>{{ $bukusaya->kode }}</td>
@@ -35,13 +35,6 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="6" class="text-center">
-                                        <img width="200px" src="{{ asset('assets/images/not-found/undraw_taken_re_yn20.svg') }}">
-                                    </td>
-                                </tr>
-                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -49,3 +42,8 @@
         </div>
     </div>
 </div>
+@else
+<div class="text-center">
+    <img width="400px" class="img-thumbnail" src="{{ asset('assets/images/not-found/undraw_taken_re_yn20.svg') }}">
+</div>
+@endif
