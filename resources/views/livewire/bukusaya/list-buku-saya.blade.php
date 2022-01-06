@@ -19,7 +19,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                                @foreach ($bukusaya_ as $bukusaya)
+                                @foreach ($bukusaya_->peminjaman_ as $bukusaya)
                                 <tr>
                                     <td><div style="width: 7em">{{ $bukusaya->kode }}</div></td>
                                     <td><div style="width: 10em">{{ $bukusaya->buku->judul }}</div></td>
