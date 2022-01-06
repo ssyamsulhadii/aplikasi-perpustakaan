@@ -13,7 +13,7 @@ class Rak extends Component
     public function render()
     {
         return view('livewire.tambah-data.rak', [
-            'rak_' => ModelsRak::orderBy('nama')->get(),
+            'rak_' => ModelsRak::with('kategori_')->orderBy('nama')->get(),
         ]);
     }
     public function create()
