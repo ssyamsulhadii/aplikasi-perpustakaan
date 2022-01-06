@@ -4,6 +4,17 @@
             <div class="card-header pb-2 pt-3 d-flex justify-content-between">
                 <h4 class="card-title">Daftar Buku</h4>
                 <div class="ml-auto">
+                    <div class="btn-group dropdown">
+                        <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split pb-0 mb-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                            Kategori
+                        </button>
+                        <div class="dropdown-menu">
+                            @foreach ($kategori_ as $kategori)
+                                <a target="_blank" class="dropdown-item" href="{{ route('cetak.buku') . '?kategori=' . $kategori->id }}">{{ $kategori->nama }}</a>
+                            @endforeach
+                        </div>
+                        <a target="_blank" href="{{ route('cetak.buku') }}" class="btn btn-dark pb-0 mb-2"><i class="bi bi-printer" style="font-size: 20px"></i></a>
+                    </div>
                     <span wire:click.prevent="create" role="button" class="badge bg-primary p-2">
                         <i class="bi bi-plus-circle" style="font-size: 20px"></i>
                     </span>

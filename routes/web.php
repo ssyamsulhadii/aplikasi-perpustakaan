@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\cetak\CetakController;
 use App\Http\Livewire\Admin\Pengguna;
 use App\Http\Livewire\Anggota\ListAnggota;
 use App\Http\Livewire\Beranda\ListBuku;
@@ -27,9 +28,17 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('pengguna', Pengguna::class)->name('pengguna')->middleware('IsAdmin');
 
-    Route::get('rak', TambahDataRak::class)->prefix('tambah-data')->name('tambah-data.rak')->middleware('admin.AdminBuku');
-    Route::get('kategori', TambahDataKategori::class)->prefix('tambah-data')->name('tambah-data.kategori')->middleware('admin.AdminBuku');
-    Route::get('buku', TambahDataBuku::class)->prefix('tambah-data')->name('tambah-data.buku')->middleware('admin.AdminBuku');
+    Route::middleware('admin.AdminBuku')->group(
+        function () {
+            Route::get('rak', TambahDataRak::class)->prefix('tambah-data')->name('tambah-data.rak');
+            Route::get('kategori', TambahDataKategori::class)->prefix('tambah-data')->name('tambah-data.kategori');
+            Route::get('buku', TambahDataBuku::class)->prefix('tambah-data')->name('tambah-data.buku');
+            Route::get('/cetak-kategori', [CetakController::class, 'cetakKategori'])->name('cetak.kategori');
+            Route::get('/cetak-buku', [CetakController::class, 'cetakBuku'])->name('cetak.buku');
+        }
+    );
+
+
 
     Route::get('anggota', ListAnggota::class)->name('anggota')->middleware('admin.AdminTransaksi');
     Route::get('peminjaman-buku', ListPeminjamanBuku::class)->name('peminjaman-buku')->middleware('admin.AdminTransaksi');
