@@ -14,8 +14,8 @@ class Kategori extends Component
     public function render()
     {
         return view('livewire.tambah-data.kategori', [
-            'rak_' => \App\Models\Rak::all(),
-            'kategori_' => ModelsKategori::get()->sortBy('rak.nama'),
+            'rak_' => \App\Models\Rak::orderBy('nama')->get(),
+            'kategori_' => ModelsKategori::with('buku_')->get()->sortBy('rak.nama'),
         ]);
     }
 
