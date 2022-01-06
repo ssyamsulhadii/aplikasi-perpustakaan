@@ -11,7 +11,7 @@ class ListBukuSaya extends Component
     {
         $anggota = Anggota::firstWhere('user_id', auth()->user()->id);
         return view('livewire.bukusaya.list-buku-saya', [
-            'bukusaya_' => $anggota,
+            'bukusaya_' => $anggota->peminjaman_,
         ]);
     }
 }

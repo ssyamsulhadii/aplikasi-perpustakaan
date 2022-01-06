@@ -1,5 +1,5 @@
 @if ($bukusaya_ !== null)
-<div class="col-lg-8 col-md-10 col-12">
+<div class="col-12">
     <div class="card">
         <div class="card-header pb-2 pt-3">
             <h4 class="card-title">Daftar Buku Saya</h4>
@@ -21,11 +21,11 @@
                         <tbody>
                                 @foreach ($bukusaya_ as $bukusaya)
                                 <tr>
-                                    <td>{{ $bukusaya->kode }}</td>
-                                    <td>{{ $bukusaya->buku->judul }}</td>
+                                    <td><div style="width: 7em">{{ $bukusaya->kode }}</div></td>
+                                    <td><div style="width: 10em">{{ $bukusaya->buku->judul }}</div></td>
                                     <td>{{ $bukusaya->jumlah_pinjam }}</td>
-                                    <td>{{ $bukusaya->tanggal_pinjam->isoFormat('DD-MM-YYYY') }}</td>
-                                    <td>{{ $bukusaya->tanggal_kembali->isoFormat('DD-MM-YYYY') }}</td>
+                                    <td><div style="width: 8em">{{ $bukusaya->tanggal_pinjam->isoFormat('DD-MM-YYYY') }}</div></td>
+                                    <td><div style="width: 8em">{{ $bukusaya->tanggal_kembali->isoFormat('DD-MM-YYYY') }}</div></td>
                                     <td>
                                         @if ($bukusaya->status)
                                             <span><i style="font-size: 25px" class="bi bi-check-all"></i></span>
