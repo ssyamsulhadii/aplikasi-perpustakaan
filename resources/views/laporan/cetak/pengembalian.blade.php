@@ -47,7 +47,7 @@
             </td>
         </tr>
     </table>
-    <table style="margin-left:-220px;">
+    <table style="margin-left:-283px;">
         <tr>
             <td>
                 Periode Tanggal : {{ $tanggal_from->isoFormat('DD-MM-YYYY') }} s.d {{ $tanggal_to->isoFormat('DD-MM-YYYY') }}

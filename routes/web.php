@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku')->middleware('admin.AdminTransaksi');
             Route::get('cetak-anggota', [CetakController::class, 'cetakAnggota'])->name('cetak.anggota');
             Route::get('cetak-peminjaman', [CetakController::class, 'cetakPeminjaman'])->name('cetak.peminjaman');
-            Route::get('cetak-pengembalian', [CetakController::class, 'cetakPengembalian'])->name('cetak.pengembalia');
+            Route::get('cetak-pengembalian', [CetakController::class, 'cetakPengembalian'])->name('cetak.pengembalian');
         }
     );
 });
