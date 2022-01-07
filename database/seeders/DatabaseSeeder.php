@@ -30,13 +30,14 @@ class DatabaseSeeder extends Seeder
         $user = User::where('level', 'anggota')->get();
         $user->map(fn ($user) => Anggota::create(['user_id' => $user->id]));
 
-        Peminjaman::factory(10)->create();
+        Peminjaman::factory(100)->create();
 
         $peminjamanbuku_ = Peminjaman::all();
         foreach ($peminjamanbuku_ as $peminjamanbuku) {
             Pengembalian::create([
                 'kode' => substr($peminjamanbuku->kode, 4, 3),
                 'peminjaman_id' => $peminjamanbuku->id,
+                'tanggal_kembali' => $peminjamanbuku->tanggal_kembali,
             ]);
         }
     }

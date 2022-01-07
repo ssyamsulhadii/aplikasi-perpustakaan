@@ -7,6 +7,7 @@
                         <div class="form-group">
                             <h4 class="card-title">Anngota</h4>
                             <span class="text-subtitle text-muted d-block">Anggota adalah daftar pengguna yang telah melakukan pendaftaran disitus ini.</span>
+                            <a target="_blank" href="{{ route('cetak.anggota') }}" class="btn btn-outline-dark mt-5">Cetak</a>
                         </div>
                     </div>
                 </div>

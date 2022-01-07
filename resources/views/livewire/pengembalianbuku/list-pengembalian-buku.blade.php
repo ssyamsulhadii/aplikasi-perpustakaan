@@ -1,5 +1,72 @@
 <div>
     <div class="card">
+        <div class="card-body">
+                <form action="{{ route('cetak.pengembalian') }}" method="GET">
+                    @csrf
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-2 col-md-4 col-12 mb-lg-0 mb-sm-0 mb-2">
+                        <button type="submit" class="btn btn-outline-dark">Cetak</button>
+                    </div>
+                    <div class="col-lg-10 col-md-8 col-12">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <select name="tanggal_from" class="form-select" id="basicSelect">
+                                            @for ($i = 1; $i < 31; $i++)
+                                                <option>{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <select name="bulan_from" class="form-select" id="basicSelect">
+                                            @foreach ($bulan as $value)
+                                                <option value="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}" {{ $loop->iteration == $waktu_sekarang->isoFormat("MM") ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <select name="tahun_from" class="form-select" id="basicSelect">
+                                            @for ($i = 2021; $i < 2030; $i++)
+                                                <option {{ $i == $waktu_sekarang->isoFormat("YYYY") ? 'selected' : '' }}>{{ $i }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <select name="tanggal_to" class="form-select" id="basicSelect">
+                                            @for ($i = 1; $i < 31; $i++)
+                                                <option {{ $i == $waktu_sekarang->isoFormat("DD") ? 'selected' : '' }}>{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <select name="bulan_to" class="form-select" id="basicSelect">
+                                            @foreach ($bulan as $value)
+                                                <option value="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}" {{ $loop->iteration == $waktu_sekarang->isoFormat("MM") ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <select name="tahun_to" class="form-select" id="basicSelect">
+                                            @for ($i = 2021; $i < 2030; $i++)
+                                                <option {{ $i == $waktu_sekarang->isoFormat("YYYY") ? 'selected' : '' }}>{{ $i }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
         <div class="card-header pb-2 pt-3 d-flex justify-content-between">
             <h4 class="card-title">Daftar Pengembalian Buku</h4>
         </div>

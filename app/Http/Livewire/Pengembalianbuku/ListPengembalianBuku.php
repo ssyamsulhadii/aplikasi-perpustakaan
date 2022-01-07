@@ -18,7 +18,11 @@ class ListPengembalianBuku extends Component
     public $tanggal_kembali_over = false;
     public function render()
     {
-        return view('livewire.pengembalianbuku.list-pengembalian-buku', ['pengembalian_' => Pengembalian::latest()->paginate(5)]);
+        $this->bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        return view('livewire.pengembalianbuku.list-pengembalian-buku', [
+            'pengembalian_' => Pengembalian::latest()->paginate(5),
+            'waktu_sekarang' => new \Carbon\Carbon(),
+        ]);
     }
     public function propertiReset()
     {

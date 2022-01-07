@@ -37,10 +37,14 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/cetak-buku', [CetakController::class, 'cetakBuku'])->name('cetak.buku');
         }
     );
-
-
-
-    Route::get('anggota', ListAnggota::class)->name('anggota')->middleware('admin.AdminTransaksi');
-    Route::get('peminjaman-buku', ListPeminjamanBuku::class)->name('peminjaman-buku')->middleware('admin.AdminTransaksi');
-    Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku')->middleware('admin.AdminTransaksi');
+    Route::middleware('admin.AdminTransaksi')->group(
+        function () {
+            Route::get('anggota', ListAnggota::class)->name('anggota')->middleware('admin.AdminTransaksi');
+            Route::get('peminjaman-buku', ListPeminjamanBuku::class)->name('peminjaman-buku')->middleware('admin.AdminTransaksi');
+            Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku')->middleware('admin.AdminTransaksi');
+            Route::get('cetak-anggota', [CetakController::class, 'cetakAnggota'])->name('cetak.anggota');
+            Route::get('cetak-peminjaman', [CetakController::class, 'cetakPeminjaman'])->name('cetak.peminjaman');
+            Route::get('cetak-pengembalian', [CetakController::class, 'cetakPengembalian'])->name('cetak.pengembalian');
+        }
+    );
 });

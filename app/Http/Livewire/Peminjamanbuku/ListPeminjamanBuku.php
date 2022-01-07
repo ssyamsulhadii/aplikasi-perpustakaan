@@ -41,6 +41,7 @@ class ListPeminjamanBuku extends Component
             'peminjaman_' => Peminjaman::latest()->paginate(5),
             'anggota_' => User::where('level', 'anggota')->get(),
             'buku_' => Buku::where('jumlah', '>', 0)->orderBy('judul')->get(),
+            'waktu_sekarang' => new \Carbon\Carbon(),
         ]);
     }
 
