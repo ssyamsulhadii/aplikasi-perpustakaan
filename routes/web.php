@@ -4,6 +4,7 @@ use App\Http\Controllers\cetak\CetakController;
 use App\Http\Livewire\Admin\Pengguna;
 use App\Http\Livewire\Anggota\ListAnggota;
 use App\Http\Livewire\Beranda\ListBuku;
+use App\Http\Livewire\Beranda\TentangKami;
 use App\Http\Livewire\Bukusaya\ListBukuSaya;
 use App\Http\Livewire\Peminjamanbuku\ListPeminjamanBuku;
 use App\Http\Livewire\Pengembalianbuku\ListPengembalianBuku;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', ListBuku::class);
 Route::get('list-buku', ListBuku::class)->prefix('beranda')->name('list-buku');
+Route::get('tentang-kami', TentangKami::class)->prefix('beranda')->name('tentang-kami');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -44,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku')->middleware('admin.AdminTransaksi');
             Route::get('cetak-anggota', [CetakController::class, 'cetakAnggota'])->name('cetak.anggota');
             Route::get('cetak-peminjaman', [CetakController::class, 'cetakPeminjaman'])->name('cetak.peminjaman');
-            Route::get('cetak-pengembalian', [CetakController::class, 'cetakPengembalian'])->name('cetak.pengembalian');
+            Route::get('cetak-pengembalian', [CetakController::class, 'cetakPengembalian'])->name('cetak.pengembalia');
         }
     );
 });

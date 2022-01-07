@@ -29,7 +29,7 @@
                             </li>
                             <li
                                 class="submenu-item  ">
-                                <a href="table-datatable.html"
+                                <a href="{{ route('tentang-kami') }}"
                                     class='submenu-link'>Tentang Kami</a>
                             </li>
                     </div>
