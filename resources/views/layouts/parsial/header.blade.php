@@ -7,8 +7,8 @@
                     Dinas Kearsipan dan Perpustakaan
                 </div>
             </div>
-            @auth
-                <div class="header-top-right">
+            <div class="header-top-right">
+                    @auth
                     <div class="dropdown">
                         <a href="#" class="user-dropdown d-flex dropend" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="avatar avatar-md2">
@@ -32,11 +32,11 @@
                         </ul>
                     </div>
                     <!-- Burger button responsive -->
+                    @endauth
                     <a href="#" class="burger-btn d-block d-xl-none">
                         <i class="bi bi-justify fs-3"></i>
                     </a>
                 </div>
-            @endauth
         </div>
     </div>
     @include('layouts.parsial.navbar')
