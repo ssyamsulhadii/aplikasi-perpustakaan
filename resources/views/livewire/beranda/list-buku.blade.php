@@ -52,9 +52,9 @@
                 </div>
                 @endforelse
         </div>
-        <div class="row">
+        <div class="row mb">
             <div class="d-flex justify-content-center">
-                {{ $buku_->onEachSide(1)->links() }}
+                {{ $buku_->onEachSide(2)->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
     </section>
