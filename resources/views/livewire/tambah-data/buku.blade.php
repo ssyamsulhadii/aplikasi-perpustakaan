@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="card-footer pb-0 pt-3">
-                    {{ $buku_->onEachSide(1)->links() }}
+                    {{ $buku_->onEachSide(2)->links('vendor.pagination.bootstrap-4') }}
                 </div>
             </div>
         </div>

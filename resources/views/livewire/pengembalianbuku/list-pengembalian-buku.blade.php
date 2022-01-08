@@ -114,7 +114,7 @@
             </div>
         </div>
         <div class="card-footer">
-            {{ $pengembalian_->onEachSide(1)->links() }}
+            {{ $pengembalian_->onEachSide(2)->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>
 

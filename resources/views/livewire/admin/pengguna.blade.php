@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="card-footer pb-0 pt-3">
-                {{ $pengguna_->links() }}
+                {{ $pengguna_->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
     </div>

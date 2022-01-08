@@ -130,7 +130,7 @@
             </div>
         </div>
         <div class="card-footer">
-            {{ $peminjaman_->onEachSide(1)->links() }}
+            {{ $peminjaman_->onEachSide(2)->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>
     <div wire:ignore.self class="modal fade text-left" id="formModal" role="dialog" tabindex="-1" aria-hidden="true">
