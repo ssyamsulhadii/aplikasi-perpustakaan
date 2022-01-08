@@ -14,7 +14,7 @@
             </div>
         </div>
         @foreach ($anggota_ as $anggota)
-        <div class="col-6 col-lg-3 col-md-6">
+        <div class="col-12 col-lg-3 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-start align-items-center">

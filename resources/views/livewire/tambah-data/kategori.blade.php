@@ -30,7 +30,7 @@
     <section class="section">
         <div class="row">
             @foreach ($kategori_ as $kategori)
-                <div class="col-6 col-lg-3 col-md-6">
+                <div class="col-12 col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-start align-items-center">
