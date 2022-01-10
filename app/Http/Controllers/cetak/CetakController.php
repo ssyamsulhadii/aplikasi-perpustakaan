@@ -29,7 +29,7 @@ class CetakController extends Controller
                 $query->where('id', $kategori);
             });
         })->orderBy('judul')->get();
-        $inst_pdf = new Html2Pdf('P', 'A4', 'en', true, 'UTF-8', [15, 20, 15, 0]);
+        $inst_pdf = new Html2Pdf('L', 'A4', 'en', true, 'UTF-8', [15, 5, 15, 0]);
         // $inst_pdf->previewHTML(view('laporan.cetak.buku', compact('buku_')));
         $inst_pdf->pdf->SetTitle('Cetak Data Buku ' . request('rak') . request('kategori'));
         $inst_pdf->writeHTML(view('laporan.cetak.buku', compact('buku_')));

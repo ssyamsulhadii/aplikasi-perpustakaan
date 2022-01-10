@@ -22,7 +22,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(5)->create();
-        Rak::factory(6)->create();
+        for ($i = 1; $i <= 8; $i++) {
+            Rak::create([
+                'nama' => 'Rak ' . $i,
+            ]);
+        }
         Kategori::factory(8)->create();
         $this->call(BukuSeeder::class);
 

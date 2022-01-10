@@ -43,7 +43,10 @@
         @include('laporan.cetak.logo-header', ['barisSatu' => 5, 'barisDua' => 6])
         <tr>
             <td style="text-align: center;" colspan="6"><strong>Laporan Buku
-                    {{ \App\Models\Kategori::find(request('kategori'))->nama  }}</strong>
+                @if(request('kategori'))
+                    {{ \App\Models\Kategori::find(request('kategori'))->nama  }}
+                @endif
+            </strong>
             </td>
         </tr>
         <tr>
