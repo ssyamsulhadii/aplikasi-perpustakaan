@@ -76,4 +76,66 @@ class CetakController extends Controller
         ]));
         $inst_pdf->output("cetak-laporan-peminjaman.pdf");
     }
+
+    public function cetakPendaftaranPengguna()
+    {
+        switch (request('opsi')) {
+            case 3:
+                $str = "di 3 bulan awal 2021";
+                break;
+            case 6:
+                $str = "di 6 bulan awal 2021";
+                break;
+            default;
+                $str = "di Tahun 2021";
+                break;
+        }
+        $opsi = ["2021-01-01", "2021-" . request('opsi') . "-30"];
+        $pengguna_ = \App\Models\User::where('level', 'Anggota')->whereBetween('created_at', $opsi)->get();
+        $inst_pdf = new Html2Pdf('L', 'A4', 'en', true, 'UTF-8', [15, 20, 15, 0]);
+        $inst_pdf->pdf->SetTitle('Cetak Data Pendafataran Pengguna');
+        $inst_pdf->writeHTML(view('laporan.cetak.admin.pendaftaran-pengguna', [
+            'anggota_' => $pengguna_,
+            'str' => $str,
+        ]));
+        $inst_pdf->output("anggota.pdf");
+    }
+
+    public function cetakAnggotaPeminjaman()
+    {
+        // dianggap sering melakukan peminjaman buku apabila lebih dari 3 buku yang dipinjam
+        $anggota_ = \App\Models\Anggota::withCount('peminjaman_')->whereHas('peminjaman_', function ($query) {
+            $query->whereHas('pengembalian_', function ($query) {
+                $query->whereNotNull('tanggal_kembali_over');
+            });
+        })->get();
+        $anggota_ = $anggota_->sortByDesc('peminjaman__count')->where('peminjaman__count', '>', 3);
+        $inst_pdf = new Html2Pdf('L', 'A4', 'en', true, 'UTF-8', [15, 20, 15, 0]);
+        $inst_pdf->pdf->SetTitle('Cetak Data Anggota yang Sering Melakukan Peminjaman Buku');
+        $inst_pdf->writeHTML(view('laporan.cetak.admin.anggota-peminjaman', compact('anggota_')));
+        $inst_pdf->output("anggota-peminjaman.pdf");
+    }
+
+    public function cetakAnggotaPengembalianTerlambat()
+    {
+        $anggota_ = \App\Models\Anggota::whereHas('pengembalian_', function ($query) {
+            $query->where('denda', '!=', null);
+        })->get()->sortBy('pengembalian_.tanggal_kembali');
+
+        $inst_pdf = new Html2Pdf('L', 'A4', 'en', true, 'UTF-8', [15, 20, 15, 0]);
+        $inst_pdf->pdf->SetTitle('Cetak Data Anggota yang Sering Melakukan Keterlambatan Pengembalian Buku');
+        $inst_pdf->writeHTML(view('laporan.cetak.admin.anggota-pengembalian-terlambat', compact('anggota_')));
+        $inst_pdf->output("anggota-peminjaman.pdf");
+    }
+
+    public function cetakBukuFavorite()
+    {
+        $kategori_ = \App\Models\Kategori::whereHas('buku_', function ($query) {
+            $query->where('dibaca', '>', 25);
+        })->get()->sortBy('buku_.dibaca');
+        $inst_pdf = new Html2Pdf('L', 'A4', 'en', true, 'UTF-8', [15, 5, 15, 0]);
+        $inst_pdf->pdf->SetTitle('Cetak Data Buku Terfavorite yang Sering dipinjam');
+        $inst_pdf->writeHTML(view('laporan.cetak.admin.buku-favorite', compact('kategori_')));
+        $inst_pdf->output("data-buku-favorite.pdf");
+    }
 }

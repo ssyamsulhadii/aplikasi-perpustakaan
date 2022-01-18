@@ -15,7 +15,7 @@ class PeminjamanFactory extends Factory
      */
     public function definition()
     {
-        $tanggal = $this->faker->dateTimeBetween('2021-01-01', now());
+        $tanggal = $this->faker->dateTimeBetween('2021-01-01', '2021-12-25');
         $tanggal_pinjam = new \Carbon\Carbon($tanggal);
         return [
             'kode' => $this->faker->bothify('###'),

@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(5)->create();
+        User::factory(25)->create();
         for ($i = 1; $i <= 8; $i++) {
             Rak::create([
                 'nama' => 'Rak ' . $i,
@@ -34,14 +34,23 @@ class DatabaseSeeder extends Seeder
         $user = User::where('level', 'anggota')->get();
         $user->map(fn ($user) => Anggota::create(['user_id' => $user->id]));
 
-        Peminjaman::factory(100)->create();
+        Peminjaman::factory(50)->create();
 
         $peminjamanbuku_ = Peminjaman::all();
         foreach ($peminjamanbuku_ as $peminjamanbuku) {
+            if ($peminjamanbuku->id < 25) {
+                $tanggal_kembali_over = null;
+                $denda = null;
+            } else {
+                $tanggal_kembali_over = $peminjamanbuku->tanggal_kembali->addDay(2);
+                $denda = 12000;
+            }
             Pengembalian::create([
                 'kode' => substr($peminjamanbuku->kode, 4, 3),
                 'peminjaman_id' => $peminjamanbuku->id,
                 'tanggal_kembali' => $peminjamanbuku->tanggal_kembali,
+                'tanggal_kembali_over' => $tanggal_kembali_over,
+                'denda' => $denda,
             ]);
         }
     }

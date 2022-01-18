@@ -38,7 +38,7 @@ class ListPeminjamanBuku extends Component
     {
         $this->bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         return view('livewire.peminjamanbuku.list-peminjaman-buku', [
-            'peminjaman_' => Peminjaman::latest()->paginate(5),
+            'peminjaman_' => Peminjaman::OrderBy('tanggal_kembali', 'DESC')->paginate(5),
             'anggota_' => User::where('level', 'anggota')->get(),
             'buku_' => Buku::where('jumlah', '>', 0)->orderBy('judul')->get(),
             'waktu_sekarang' => new \Carbon\Carbon(),

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\cetak\CetakController;
+use App\Http\Livewire\Admin\Laporan;
 use App\Http\Livewire\Admin\Pengguna;
 use App\Http\Livewire\Anggota\ListAnggota;
 use App\Http\Livewire\Beranda\ListBuku;
@@ -28,15 +29,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('profil', Profil::class)->prefix('umum')->name('umum.profil');
     Route::get('ganti-password', GantiPassword::class)->prefix('umum')->name('umum.ganti-password');
 
-    Route::get('pengguna', Pengguna::class)->name('pengguna')->middleware('IsAdmin');
+    Route::middleware('IsAdmin')->group(function () {
+        Route::get('pengguna', Pengguna::class)->name('pengguna');
+        Route::get('laporan', Laporan::class)->name('admin.laporan');
+        Route::get('cetak-anggota-peminjaman', [CetakController::class, 'cetakAnggotaPeminjaman'])->name('cetak.anggota-peminjaman');
+        Route::get('cetak-anggota-pengembalian-terlambat', [CetakController::class, 'cetakAnggotaPengembalianTerlambat'])->name('cetak.anggota-pengembalian-terlambat');
+        Route::get('cetak-buku-favorite', [CetakController::class, 'cetakBukuFavorite'])->name('cetak.buku-favorite');
+        Route::get('cetak-pendaftaran-pengguna', [CetakController::class, 'cetakPendaftaranPengguna'])->name('cetak.pendaftaran-pengguna');
+    });
 
     Route::middleware('admin.AdminBuku')->group(
         function () {
             Route::get('rak', TambahDataRak::class)->prefix('tambah-data')->name('tambah-data.rak');
             Route::get('kategori', TambahDataKategori::class)->prefix('tambah-data')->name('tambah-data.kategori');
             Route::get('buku', TambahDataBuku::class)->prefix('tambah-data')->name('tambah-data.buku');
-            Route::get('/cetak-kategori', [CetakController::class, 'cetakKategori'])->name('cetak.kategori');
-            Route::get('/cetak-buku', [CetakController::class, 'cetakBuku'])->name('cetak.buku');
+            Route::get('cetak-kategori', [CetakController::class, 'cetakKategori'])->name('cetak.kategori');
+            Route::get('cetak-buku', [CetakController::class, 'cetakBuku'])->name('cetak.buku');
         }
     );
     Route::middleware('admin.AdminTransaksi')->group(

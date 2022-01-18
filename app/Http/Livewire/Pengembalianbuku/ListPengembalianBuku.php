@@ -20,7 +20,7 @@ class ListPengembalianBuku extends Component
     {
         $this->bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         return view('livewire.pengembalianbuku.list-pengembalian-buku', [
-            'pengembalian_' => Pengembalian::latest()->paginate(5),
+            'pengembalian_' => Pengembalian::OrderBy('tanggal_kembali', 'DESC')->paginate(5),
             'waktu_sekarang' => new \Carbon\Carbon(),
         ]);
     }

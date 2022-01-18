@@ -21,4 +21,8 @@ class Anggota extends Model
     {
         return $this->hasMany(Peminjaman::class);
     }
+    public function pengembalian_()
+    {
+        return $this->hasManyThrough(Pengembalian::class, Peminjaman::class);
+    }
 }
