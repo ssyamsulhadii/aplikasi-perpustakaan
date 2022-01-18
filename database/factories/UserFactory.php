@@ -18,13 +18,9 @@ class UserFactory extends Factory
         $nama = $this->faker->unique()->randomElement($daftar_nama_pengguna);
         $kode_nomor = ['0815', '0887', '0812', '0831', '0831'];
         $email = str_replace(' ', '', strtolower($nama)) . '@gmail.com';
-        if ($nama == 'Hadi' || $nama == 'Aisyah' || $nama == 'Mawarda') {
-            $verifikasi = true;
-        } else {
-            $verifikasi = $this->faker->randomElement([true, false]);
-        }
         switch ($nama) {
             case 'Hadi':
+                $nama = 'sys hi';
                 $level = 'admin';
                 $email = 'admin@gmail.com';
                 break;
@@ -48,6 +44,7 @@ class UserFactory extends Factory
             'password' => bcrypt('1234'),
             'telpon' => $this->faker->randomElement($kode_nomor) . $this->faker->bothify('########'),
             'alamat' => $this->faker->city,
+            'created_at' => $this->faker->dateTimeBetween('2021-01-01', '2021-12-31'),
             // 'telpon' => "",
             // 'alamat' => "",
         ];
