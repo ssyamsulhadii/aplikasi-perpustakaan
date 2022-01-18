@@ -34,8 +34,8 @@ class AuthServiceProvider extends ServiceProvider
             $message = new MailMessage;
             $message->subject(Lang::get('Verifikasi Email'))
                 ->greeting('Hei, ' . $user->nama . '!')
-                ->line(Lang::get('Terimakasih telah mendaftar di website Dinas Kearsipan dan Perpustakaan. Tekan tombol verifikasi dibawah untuk memverifikasi akun kamu!'))
-                ->action(Lang::get('Verifikasi'), $verificationUrl)
+                ->line(Lang::get('Berhasil melakukan pendaftaran. Sekarang email kamu sudah terdaftar di website Dinas Kearsipan dan Perpustakaan Kota kapuas. Tekan tombol dibawah untuk masuk kewebsite...!'))
+                ->action(Lang::get('Aplikasi Perpustakaan'), "#")
                 ->line(Lang::get('Bilka kamu memiliki pertanyaan, silakan menghubungi kami di 082290901212'))
                 ->salutation('Salam : Sahabat Membaca');
             return ($message);

@@ -39,8 +39,9 @@ class CreateNewUser implements CreatesNewUsers
             'nama' => $input['nama'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'telpon' => "",
-            'alamat' => "",
+            'email_verified_at' => now(),
+            'telpon' => "-",
+            'alamat' => "-",
         ]);
         $user->anggota()->create();
 
