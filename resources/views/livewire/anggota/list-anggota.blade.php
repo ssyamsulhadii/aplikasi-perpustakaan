@@ -26,6 +26,7 @@
                             <span class="text-muted d-block"><i class="bi bi-calendar-plus"></i>&emsp;{{ $anggota->created_at->isoFormat('DD MMMM YYYY') }}</span>
                             <span class="text-muted d-block"><i class="bi bi-telephone"></i>&emsp;{{ $anggota->telpon }}</span>
                             <span class="text-muted d-block"><i class="bi bi-geo"></i>&emsp;{{ $anggota->alamat }}</span>
+                            <a class="text-muted d-block" href="{{ route('cetak.peminjaman-anggota', ['anggota'=>$anggota->id]) }}"><i class="bi bi-printer"></i>&emsp;cetak</a>
                         </div>
                     </div>
                 </div>

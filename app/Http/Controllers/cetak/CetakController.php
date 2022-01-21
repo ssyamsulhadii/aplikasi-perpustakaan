@@ -44,6 +44,13 @@ class CetakController extends Controller
         $inst_pdf->writeHTML(view('laporan.cetak.anggota', compact('anggota_')));
         $inst_pdf->output("anggota.pdf");
     }
+    public function cetakPeminjamanAnggota(\App\Models\Anggota $anggota)
+    {
+        $inst_pdf = new Html2Pdf('L', 'A4', 'en', true, 'UTF-8', [15, 20, 15, 0]);
+        $inst_pdf->pdf->SetTitle('Cetak Data Peminjaman Anggota');
+        $inst_pdf->writeHTML(view('laporan.cetak.peminjaman-anggota', compact('anggota')));
+        $inst_pdf->output("peminjaman-anggota.pdf");
+    }
 
     public function cetakPeminjaman()
     {
