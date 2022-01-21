@@ -81,7 +81,7 @@
                     <td style="width: 120px">{{ $pengembalian->peminjaman->buku->judul }}</td>
                     <td>{{ $pengembalian->peminjaman->tanggal_pinjam->isoFormat('DD-MM-YYYY ') }}</td>
                     <td>{{ $pengembalian->tanggal_kembali->isoFormat('DD-MM-YYYY ') }}</td>
-                    <td>{{ $pengembalian->tanggal_kembali_over == null ? '-' : $data->tanggal_kembali_over->isoFormat('DD-MM-YYYYY') }}</td>
+                    <td>{{ $pengembalian->tanggal_kembali_over == null ? '-' : $pengembalian->tanggal_kembali_over->isoFormat('DD-MM-YYYYY') }}</td>
                     <td>{{ $pengembalian->denda ?? '-' }}</td>
                 </tr>
             @endforeach

@@ -69,6 +69,7 @@
                 <th>Tanggal Pinjam</th>
                 <th>Tanggal Kembali</th>
                 <th>Jumlah Buku</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -81,6 +82,7 @@
                     <td>{{ $peminjaman->tanggal_pinjam->isoFormat('DD-MM-YYYY ') }}</td>
                     <td>{{ $peminjaman->tanggal_kembali->isoFormat('DD-MM-YYYY ') }}</td>
                     <td class="text-center">{{ $peminjaman->jumlah_pinjam }}</td>
+                    <td class="text-center">{{ $peminjaman->string_status }}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -32,4 +32,9 @@ class Peminjaman extends Model
     {
         $this->attributes['kode'] = "PMJ-" . $value;
     }
+
+    public function getStringStatusAttribute()
+    {
+        return $this->attributes['status'] = 0 ? 'dipinjam' : 'dikembalikan';
+    }
 }
