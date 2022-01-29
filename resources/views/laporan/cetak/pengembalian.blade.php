@@ -43,11 +43,11 @@
         @include('laporan.cetak.logo-header', ['barisSatu' => 5, 'barisDua' => 6])
         <tr>
             <td style="text-align: center;" colspan="6">
-                <strong>Laporan Peminjaman Buku</strong>
+                <strong>Laporan Pengembalian Buku</strong>
             </td>
         </tr>
     </table>
-    <table style="margin-left:-283px;">
+    <table style="margin-left:-265px;">
         <tr>
             <td>
                 Periode Tanggal : {{ $tanggal_from->isoFormat('DD-MM-YYYY') }} s.d {{ $tanggal_to->isoFormat('DD-MM-YYYY') }}

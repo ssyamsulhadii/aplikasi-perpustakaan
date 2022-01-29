@@ -14,13 +14,13 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $daftar_nama_pengguna = ['Hadi', 'Aisyah', 'Mawarda', $this->faker->name];
+        $daftar_nama_pengguna = ['Hadi', 'Aisyah', 'Mawarda', 'Dian', $this->faker->name];
         $nama = $this->faker->unique()->randomElement($daftar_nama_pengguna);
         $kode_nomor = ['0815', '0887', '0812', '0831', '0831'];
         $email = str_replace(' ', '', strtolower($nama)) . '@gmail.com';
         switch ($nama) {
             case 'Hadi':
-                $nama = 'sys hi';
+                $nama = 'Kreatif Developer';
                 $level = 'admin';
                 $email = 'admin@gmail.com';
                 break;
@@ -31,6 +31,10 @@ class UserFactory extends Factory
             case 'Mawarda':
                 $level = 'admintransaksi';
                 $email = 'admintransaksi@gmail.com';
+                break;
+            case 'Dian':
+                $level = 'anggota';
+                $email = 'anggota@gmail.com';
                 break;
             default:
                 $level = 'anggota';
