@@ -23,7 +23,7 @@ Route::get('/', ListBuku::class);
 Route::get('list-buku', ListBuku::class)->prefix('beranda')->name('list-buku');
 Route::get('tentang-kami', TentangKami::class)->prefix('beranda')->name('tentang-kami');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::get('list-buku-saya', ListBukuSaya::class)->name('list-buku-saya');
     Route::get('profil', Profil::class)->prefix('umum')->name('umum.profil');
