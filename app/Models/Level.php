@@ -10,4 +10,10 @@ class Level extends Model
     use HasFactory;
     protected $table = 'level';
     protected $guarded = [];
+
+    // Relationship
+    public function user_()
+    {
+        return $this->hasMany(User::class);
+    }
 }

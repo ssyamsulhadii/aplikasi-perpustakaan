@@ -11,10 +11,19 @@ class Buku extends Model
     protected $table = 'buku';
     protected $with = ['kategori'];
     protected $fillable = ['kategori_id', 'judul', 'sampul', 'penulis', 'penerbit', 'jumlah', 'dibaca'];
+
+    // Relationhsip
+    public function peminjaman_()
+    {
+        return $this->hasMany(Peminjaman::class);
+    }
+    // Invers Relationship
     public function kategori()
     {
         return $this->belongsTo(Kategori::class);
     }
+
+    // Accessor
     public function getSampulUrlAttribute()
     {
         $nama_file = $this->sampul == null ? 'default.jpg' : $this->sampul;

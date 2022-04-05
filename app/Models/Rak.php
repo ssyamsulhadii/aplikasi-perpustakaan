@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rak extends Model
 {
-    protected $fillable = ['nama'];
     use HasFactory;
+    protected $fillable = ['nama'];
     protected $table = 'rak';
 
+    // Relationship
     public function kategori_()
     {
         return $this->hasMany(Kategori::class);

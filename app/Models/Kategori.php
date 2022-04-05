@@ -13,12 +13,14 @@ class Kategori extends Model
 
     protected $with = ['rak'];
 
-    public function rak()
-    {
-        return $this->belongsTo(Rak::class);
-    }
+    // Relationship
     public function buku_()
     {
         return $this->hasMany(Buku::class);
+    }
+    //Invers Relationship
+    public function rak()
+    {
+        return $this->belongsTo(Rak::class);
     }
 }

@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Peminjaman;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 // class User extends Authenticatable
@@ -47,6 +48,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Relationship
+    public function peminjaman_()
+    {
+        return $this->hasMany(Peminjaman::class);
+    }
+    // Invers Relationship
+    public function level()
+    {
+        return $this->belongsTo(level::class);
+    }
+
+    // Accessor
     public function getStringLevelAttribute()
     {
         $level = [
@@ -61,10 +74,5 @@ class User extends Authenticatable
     {
         $nama_file = $this->gambar == null ? 'default.jpg' : $this->gambar;
         return asset('assets/images/profil/' . $nama_file);
-    }
-
-    public function anggota()
-    {
-        return $this->hasOne(Anggota::class);
     }
 }

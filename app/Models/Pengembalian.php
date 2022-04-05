@@ -14,15 +14,19 @@ class Pengembalian extends Model
     protected $dates = ['tanggal_kembali', 'tanggal_kembali_over'];
     protected $with = ['peminjaman'];
 
-    public function setKodeAttribute($value)
-    {
-        $this->attributes['kode'] = "PGN-" . $value;
-    }
+    // Relationship
     public function peminjaman()
     {
         return $this->belongsTo(Peminjaman::class);
     }
 
+    // Motator
+    public function setKodeAttribute($value)
+    {
+        $this->attributes['kode'] = "PGN-" . $value;
+    }
+
+    // Accessor
     public function getTanggal1Attribute()
     {
         if ($this->tanggal_kembali) {

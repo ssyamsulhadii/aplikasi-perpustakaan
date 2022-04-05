@@ -14,6 +14,12 @@ class Peminjaman extends Model
     protected $dates = ['tanggal_pinjam', 'tanggal_kembali'];
     protected $with = ['user', 'buku'];
 
+    // Relationship
+    public function pengembalian()
+    {
+        return $this->hasOne(Pengembalian::class);
+    }
+    // Invers Relationship
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -22,17 +28,15 @@ class Peminjaman extends Model
     {
         return $this->belongsTo(Buku::class);
     }
-    public function pengembalian_()
-    {
-        return $this->hasMany(Pengembalian::class);
-    }
 
 
+    // Motator
     public function setKodeAttribute($value)
     {
         $this->attributes['kode'] = "PMJ-" . $value;
     }
 
+    // Accessor
     public function getStringStatusAttribute()
     {
         return $this->attributes['status'] = 0 ? 'dipinjam' : 'dikembalikan';
