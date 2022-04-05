@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnggotaTable extends Migration
+class CreateLevelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateAnggotaTable extends Migration
      */
     public function up()
     {
-        Schema::create('anggota', function (Blueprint $table) {
+        Schema::create('level', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->unique()->constrained()->onDelete('cascade');
+            $table->char('kode', 6);
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateAnggotaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anggota');
+        Schema::dropIfExists('level');
     }
 }

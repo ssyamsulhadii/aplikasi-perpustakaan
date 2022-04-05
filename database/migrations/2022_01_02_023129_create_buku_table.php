@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Kategori;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,8 +22,7 @@ class CreateBukuTable extends Migration
             $table->string('penerbit');
             $table->integer('jumlah');
             $table->char('dibaca')->nullable();
-            $table->unsignedBigInteger('kategori_id')->nullable();
-            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
+            $table->foreignIdFor(Kategori::class, 'kategori_id')->constrained('kategori', 'id')->onDelete('cascade');
             $table->timestamps();
         });
     }

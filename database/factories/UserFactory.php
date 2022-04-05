@@ -14,43 +14,24 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $daftar_nama_pengguna = ['Hadi', 'Aisyah', 'Mawarda', 'Dian', $this->faker->name];
-        $nama = $this->faker->unique()->randomElement($daftar_nama_pengguna);
         $kode_nomor = ['0815', '0887', '0812', '0831', '0831'];
-        $email = str_replace(' ', '', strtolower($nama)) . '@gmail.com';
-        switch ($nama) {
-            case 'Hadi':
-                $nama = 'Kreatif Developer';
-                $level = 'admin';
-                $email = 'admin@gmail.com';
-                break;
-            case 'Aisyah':
-                $level = 'adminbuku';
-                $email = 'adminbuku@gmail.com';
-                break;
-            case 'Mawarda':
-                $level = 'admintransaksi';
-                $email = 'admintransaksi@gmail.com';
-                break;
-            case 'Dian':
-                $level = 'anggota';
-                $email = 'anggota@gmail.com';
-                break;
-            default:
-                $level = 'anggota';
-                break;
-        }
+        $level_ = \App\Models\Level::all();
+        $nama_users = [
+            ['Admin', 1],
+            ['Admin Buku', 2],
+            ['Admin Transaksi', 3],
+            ['Anggota', 4],
+            [$this->faker->name, 4]
+        ];
+        $nama = $this->faker->unique()->randomElement($nama_users);
         return [
-            'nama' => $nama,
-            'email' => $email,
-            'level' => $level,
+            'nama' => $nama[0],
+            'email' => Str::of($nama[0])->replace(' ', '')->lower() . "@gmail.com",
+            'level_id' => $nama[1],
             'email_verified_at' => now(),
             'password' => bcrypt('1234'),
             'telpon' => $this->faker->randomElement($kode_nomor) . $this->faker->bothify('########'),
             'alamat' => $this->faker->city,
-            'created_at' => $this->faker->dateTimeBetween('2021-01-01', '2021-12-31'),
-            // 'telpon' => "",
-            // 'alamat' => "",
         ];
     }
 

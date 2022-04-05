@@ -12,11 +12,11 @@ class Peminjaman extends Model
     protected $guarded = [];
 
     protected $dates = ['tanggal_pinjam', 'tanggal_kembali'];
-    protected $with = ['anggota', 'buku'];
+    protected $with = ['user', 'buku'];
 
-    public function anggota()
+    public function user()
     {
-        return $this->belongsTo(Anggota::class);
+        return $this->belongsTo(User::class);
     }
     public function buku()
     {

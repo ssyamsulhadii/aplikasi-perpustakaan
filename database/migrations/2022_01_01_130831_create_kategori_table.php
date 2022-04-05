@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Rak;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,8 +17,7 @@ class CreateKategoriTable extends Migration
         Schema::create('kategori', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->unsignedBigInteger('rak_id')->nullable();
-            $table->foreign('rak_id')->references('id')->on('rak')->onDelete('cascade');
+            $table->foreignIdFor(Rak::class, 'rak_id')->constrained('rak', 'id')->onDelete('cascade');
             $table->timestamps();
         });
     }

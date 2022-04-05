@@ -16,10 +16,11 @@ class PeminjamanFactory extends Factory
     public function definition()
     {
         $tanggal = $this->faker->dateTimeBetween('2021-01-01', '2021-12-25');
+        $anggotaCount = \App\Models\User::where('level_id', 4)->count();
         $tanggal_pinjam = new \Carbon\Carbon($tanggal);
         return [
             'kode' => $this->faker->bothify('###'),
-            'anggota_id' => $this->faker->numberBetween(1, \App\Models\Anggota::count()),
+            'user_id' => $this->faker->numberBetween(1, $anggotaCount),
             'buku_id' => $this->faker->numberBetween(1, \App\Models\Buku::count()),
             'tanggal_pinjam' => $tanggal_pinjam->isoFormat('YYYY-MM-DD'),
             'tanggal_kembali' => $tanggal_pinjam->addDay(3)->isoFormat('YYYY-MM-DD'),
