@@ -25,7 +25,7 @@
                 </div>
             </li>
             @auth
-                @if (auth()->user()->level == 'admin')
+                @if (auth()->user()->level_admin)
                 <li
                     class="menu-item">
                     <a href="{{ route('pengguna') }}" class='menu-link {{ Request::is('pengguna') ? 'text-white' : 'text-warning' }}'>
@@ -37,7 +37,7 @@
             @endauth
 
             @auth
-                @if (auth()->user()->level === 'admin' || auth()->user()->level === 'adminbuku')
+                @if (auth()->user()->level_admin_buku)
                     <li
                         class="menu-item  has-sub">
                         <a href="#" class='menu-link {{ Route::is('tambah-data*') ? 'text-white' : 'text-warning' }}'>
@@ -71,7 +71,7 @@
             @endauth
 
             @auth
-                @if (auth()->user()->level === 'admin' || auth()->user()->level === 'admintransaksi')
+                @if (auth()->user()->level_admin_transaksi)
                     <li
                         class="menu-item  ">
                         <a href="{{ route('anggota') }}" class='menu-link {{ Request::is('anggota') ? 'text-white' : 'text-warning' }}'>
@@ -97,21 +97,20 @@
             @endauth
 
             @auth
-                @if (auth()->user()->level == 'anggota')
-                    <li
-                        class="menu-item  text-warning">
+                @if (auth()->user()->level_admin_transaksi)
+                    <li class="menu-item  text-warning">
+                        <a href="{{ route('admin.laporan') }}" class='menu-link text-warning {{ Route::is('admin.laporan') ? 'text-white' : 'text-warning' }}'>
+                            <i class="bi bi-file-earmark-text"></i>
+                            <span>Laporan</span>
+                        </a>
+                    </li>
+                @else
+                    <li class="menu-item  text-warning">
                         <a href="{{ route('list-buku-saya') }}" class='menu-link text-warning {{ Route::is('list-buku-saya') ? 'text-white' : 'text-warning' }}'>
                             <i class="bi bi-briefcase"></i>
                             <span>Buku Saya</span>
                         </a>
                     </li>
-                @elseif (auth()->user()->level == 'admin')
-                        <li class="menu-item  text-warning">
-                            <a href="{{ route('admin.laporan') }}" class='menu-link text-warning {{ Route::is('admin.laporan') ? 'text-white' : 'text-warning' }}'>
-                                <i class="bi bi-file-earmark-text"></i>
-                                <span>Laporan</span>
-                            </a>
-                        </li>
                 @endif
             @endauth
 

@@ -13,16 +13,17 @@ class Pengguna extends Component
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-
+        $level_ = \App\Models\Level::all();
         return view('livewire.admin.pengguna', [
-            'pengguna_' => User::orderBy('level')->latest()->paginate(4)
+            'pengguna_' => User::orderBy('level_id')->latest()->paginate(4),
+            'level_' => $level_
         ]);
     }
 
-    public function pilihLevel(User $pengguna, $level)
+    public function pilihLevel(User $pengguna, $level_id)
     {
-        $validator = Validator::make(['level' => $level], [
-            'level' => 'required|in:admin,adminbuku,admintransaksi,anggota',
+        $validator = Validator::make(['level_id' => $level_id], [
+            'level_id' => 'required|exists:level,id',
         ]);
         if ($validator->fails()) {
             if (key_exists('level', $validator->errors()->getMessages())) {
@@ -32,9 +33,9 @@ class Pengguna extends Component
                 ]);
             }
         } else {
-            $pengguna->update(['level' => $level]);
+            $pengguna->update(['level_id' => $level_id]);
             $this->dispatchBrowserEvent('pesan', [
-                'teks' => "Level pengguna  $level  berhasil diperbarui.",
+                'teks' => "Level Pengguna $pengguna->nama  berhasil diperbarui.",
             ]);
         }
     }

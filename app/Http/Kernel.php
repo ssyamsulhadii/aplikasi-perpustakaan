@@ -63,8 +63,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'admin.AdminTransaksi' => \App\Http\Middleware\AdminTransaksi::class,
-        'admin.AdminBuku' => \App\Http\Middleware\AdminBuku::class,
-        'IsAdmin' => \App\Http\Middleware\IsAdmin::class,
+        'akses.level-admin' => \App\Http\Middleware\Akses\LevelAdminMiddleware::class,
+        'akses.level-admin-buku' => \App\Http\Middleware\Akses\LevelAdminBukuMiddleware::class,
+        'akses.level-admin-transaksi' => \App\Http\Middleware\Akses\LevelAdminTransaksiMiddleware::class,
     ];
 }

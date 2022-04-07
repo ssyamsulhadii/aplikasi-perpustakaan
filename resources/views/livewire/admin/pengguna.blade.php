@@ -30,13 +30,11 @@
                                     </td>
                                     <td>
                                         <div style="width: 10em">
-                                        <fieldset class="form-group">
-                                            <select wire:change="pilihLevel({{ $pengguna }}, $event.target.value)" class="form-select" id="basicSelect">
-                                                <option {{ $pengguna->level === 'admin' ? 'selected' : '' }} value="admin">Admin</option>
-                                                <option {{ $pengguna->level === 'adminbuku' ? 'selected' : '' }} value="adminbuku">Admin Buku</option>
-                                                <option {{ $pengguna->level === 'admintransaksi' ? 'selected' : '' }} value="admintransaksi">Admin Transaksi</option>
-                                                <option {{ $pengguna->level === 'anggota' ? 'selected' : '' }} value="anggota">Anggota</option>
-                                                {{-- <option value="super admin">Cheat Level</option> --}}
+                                            <fieldset class="form-group">
+                                                <select wire:change="pilihLevel({{ $pengguna }}, $event.target.value)" class="form-select" id="basicSelect">
+                                                    @foreach ($level_ as $level)
+                                                        <option value="{{ $level->id}}" {{ $level->id  == $pengguna->level_id ? 'selected' : '' }}>{{ $level->nama }}</option>
+                                                    @endforeach
                                             </select>
                                         </fieldset>
                                         </div>

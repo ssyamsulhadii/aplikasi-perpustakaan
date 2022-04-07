@@ -10,7 +10,7 @@ class ListAnggota extends Component
     public function render()
     {
         return view('livewire.anggota.list-anggota', [
-            'anggota_' => User::where('level', 'anggota')->latest()->get()
+            'anggota_' => User::where('level_id', 4)->latest()->get()
         ]);
     }
 }

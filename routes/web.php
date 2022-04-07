@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('profil', Profil::class)->prefix('umum')->name('umum.profil');
     Route::get('ganti-password', GantiPassword::class)->prefix('umum')->name('umum.ganti-password');
 
-    Route::middleware('IsAdmin')->group(function () {
+    Route::middleware('akses.level-admin')->group(function () {
         Route::get('pengguna', Pengguna::class)->name('pengguna');
         Route::get('laporan', Laporan::class)->name('admin.laporan');
         Route::get('cetak-anggota-peminjaman', [CetakController::class, 'cetakAnggotaPeminjaman'])->name('cetak.anggota-peminjaman');
@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('cetak-pendaftaran-pengguna', [CetakController::class, 'cetakPendaftaranPengguna'])->name('cetak.pendaftaran-pengguna');
     });
 
-    Route::middleware('admin.AdminBuku')->group(
+    Route::middleware('akses.level-admin-buku')->group(
         function () {
             Route::get('rak', TambahDataRak::class)->prefix('tambah-data')->name('tambah-data.rak');
             Route::get('kategori', TambahDataKategori::class)->prefix('tambah-data')->name('tambah-data.kategori');
@@ -47,11 +47,11 @@ Route::middleware(['auth'])->group(function () {
             Route::get('cetak-buku', [CetakController::class, 'cetakBuku'])->name('cetak.buku');
         }
     );
-    Route::middleware('admin.AdminTransaksi')->group(
+    Route::middleware('akses.level-admin-transaksi')->group(
         function () {
-            Route::get('anggota', ListAnggota::class)->name('anggota')->middleware('admin.AdminTransaksi');
-            Route::get('peminjaman-buku', ListPeminjamanBuku::class)->name('peminjaman-buku')->middleware('admin.AdminTransaksi');
-            Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku')->middleware('admin.AdminTransaksi');
+            Route::get('anggota', ListAnggota::class)->name('anggota');
+            Route::get('peminjaman-buku', ListPeminjamanBuku::class)->name('peminjaman-buku');
+            Route::get('pengembalian-buku', ListPengembalianBuku::class)->name('pengembalian-buku');
             Route::get('cetak-anggota', [CetakController::class, 'cetakAnggota'])->name('cetak.anggota');
             Route::get('cetak-peminjaman-anggota/{anggota}', [CetakController::class, 'cetakPeminjamanAnggota'])->name('cetak.peminjaman-anggota');
             Route::get('cetak-peminjaman', [CetakController::class, 'cetakPeminjaman'])->name('cetak.peminjaman');

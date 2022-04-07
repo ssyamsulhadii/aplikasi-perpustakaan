@@ -88,7 +88,7 @@
                         @foreach ($pengembalian_ as $pengembalian)
                             <tr>
                                 <td><div style="width: 4em">{{ $pengembalian->kode }}</div></td>
-                                <td><div style="width: 6em">{{ $pengembalian->peminjaman->anggota->user->nama }}</div></td>
+                                <td><div style="width: 6em">{{ $pengembalian->peminjaman->user->nama }}</div></td>
                                 <td><div style="width: 8em">{{ $pengembalian->peminjaman->buku->judul }}</div></td>
                                 <td><div style="width: 5em">{{ $pengembalian->tanggal1 }}</div></td>
                                 <td><div style="width: 5em">{{ $pengembalian->tanggal2 }}</div></td>

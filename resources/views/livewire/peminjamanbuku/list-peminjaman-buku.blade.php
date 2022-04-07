@@ -93,7 +93,7 @@
                         @foreach ($peminjaman_ as $peminjaman)
                             <tr>
                                 <td><div style="width: 4em">{{ $peminjaman->kode }}</div></td>
-                                <td><div style="width: 8em">{{ $peminjaman->anggota->user->nama }}</div></td>
+                                <td><div style="width: 8em">{{ $peminjaman->user->nama }}</div></td>
                                 <td><div style="width: 8em">{{ $peminjaman->buku->judul }}</div></td>
                                 <td><div style="width: 5em">{{ $peminjaman->tanggal_pinjam->isoFormat('DD-MM-YYYY') }}</div></td>
                                 <td><div style="width: 5em">{{ $peminjaman->tanggal_kembali->isoFormat('DD-MM-YYYY') }}</div></td>
@@ -144,15 +144,19 @@
                 </div>
                 <form wire:submit.prevent="{{ $peminjamanItem ? 'update' : 'store' }}">
                     <div class="modal-body">
-                        <div class="form-group">
-                            <input wire:model.defer="state.kode" type="text" placeholder="Kode Peminjaman" class="form-control @error('state.kode') is-invalid @enderror">
+                        <label for="">Kode Peminjaman</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                PMJ
+                            </span>
+                            <input wire:model.defer="state.kode" type="text" placeholder="000" class="form-control @error('state.kode') is-invalid @enderror">
                         </div>
                         <fieldset class="form-group">
                             <select wire:model.defer="state.anggota_id" class="form-select @error('state.anggota_id') is-invalid @enderror"" id="basicSelect">
                                 <option>Pilih Anggota</option>
                                 @foreach ($anggota_ as $anggota)
-                                    <option value="{{ $anggota->anggota->id }}">
-                                        ID{{ str_pad($anggota->anggota->id, 3, '***', STR_PAD_LEFT) }}&ensp;{{ $anggota->nama }}</option>
+                                    <option value="{{ $anggota->id }}">
+                                        ID{{ str_pad($anggota->id, 3, '***', STR_PAD_LEFT) }}&ensp;{{ $anggota->nama }}</option>
                                 @endforeach
                             </select>
                         </fieldset>

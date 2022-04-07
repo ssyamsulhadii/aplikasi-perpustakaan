@@ -16,4 +16,10 @@ class Level extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    // accessor
+    public function getNamaAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

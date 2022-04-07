@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Akses;
 
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminBuku
+class LevelAdminTransaksiMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,12 +16,9 @@ class AdminBuku
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->level == 'admin') {
+        if (auth()->check() && auth()->user()->level_admin_transaksi) {
             return $next($request);
         }
-        if (auth()->check() && auth()->user()->level == 'adminbuku') {
-            return $next($request);
-        }
-        abort(403);
+        return abort(403);
     }
 }

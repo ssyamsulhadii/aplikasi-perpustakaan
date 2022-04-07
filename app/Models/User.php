@@ -62,17 +62,29 @@ class User extends Authenticatable
     // Accessor
     public function getStringLevelAttribute()
     {
-        $level = [
-            'admin' => 'Admin',
-            'adminbuku' => 'Admin Buku',
-            'admintransaksi' => 'Admin Transaksi',
-            'anggota' => 'Anggota',
-        ];
-        return $level[$this->level];
+        return ucfirst($this->level->nama);
     }
     public function getProfilGambarAttribute()
     {
         $nama_file = $this->gambar == null ? 'default.jpg' : $this->gambar;
         return asset('assets/images/profil/' . $nama_file);
+    }
+
+    // akses menu level admin
+    public function getLevelAdminAttribute()
+    {
+        return $this->level_id == 1;
+    }
+
+    // akses menu level admin buku
+    public function getLevelAdminBukuAttribute()
+    {
+        return $this->level_id == 1  || $this->level_id == 2;
+    }
+
+    // akses menu level admin transaksi
+    public function getLevelAdminTransaksiAttribute()
+    {
+        return $this->level_id == 1  || $this->level_id == 3;
     }
 }
