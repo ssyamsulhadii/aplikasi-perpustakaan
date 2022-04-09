@@ -40,10 +40,10 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'email_verified_at' => now(),
+            'level_id' => 4,
             'telpon' => "-",
             'alamat' => "-",
         ]);
-        $user->anggota()->create();
 
         return $user;
     }
