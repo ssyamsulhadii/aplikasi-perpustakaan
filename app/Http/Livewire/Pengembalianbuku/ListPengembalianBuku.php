@@ -12,48 +12,45 @@ class ListPengembalianBuku extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $pengembalian = null;
-    public $bulan = [];
     public $state = [];
-    public $stateTanggal = [];
-    public $tanggal_kembali_over = false;
+    public $tanggalKembali = [];
+    public $tanggalKembaliOver = [];
+    public $tanggal = false;
     public function render()
     {
-        $this->bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         return view('livewire.pengembalianbuku.list-pengembalian-buku', [
             'pengembalian_' => Pengembalian::latest()->OrderBy('tanggal_kembali', 'DESC')->paginate(5),
-            'waktu_sekarang' => new \Carbon\Carbon(),
         ]);
     }
     public function propertiReset()
     {
-        $this->reset(['pengembalian', 'bulan', 'state', 'stateTanggal', 'tanggal_kembali_over']);
+        $this->reset(['pengembalian', 'state', 'tanggalKembali', 'tanggalKembaliOver', 'tanggal']);
         $this->resetValidation();
     }
     public function konfirmasi(Pengembalian $pengembalian)
     {
         $this->propertiReset();
-
-        $this->bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         $this->pengembalian = $pengembalian;
-
         // tanggal sekarang
-        $tanggal = new Carbon;
-        // $tanggal = new Carbon('08-01-2022');
-        if ($tanggal > $pengembalian->peminjaman->tanggal_kembali) {
-            $this->tanggal_kembali_over = true;
-            $this->stateTanggal = [
-                'tanggal_kembali' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('DD'),
-                'bulan_kembali' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('MM'),
-                'tahun_kembali' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('YYYY'),
-                'tanggal_kembali_over' => $tanggal->isoFormat('DD'),
-                'bulan_kembali_over' => $tanggal->isoFormat('MM'),
-                'tahun_kembali_over' => $tanggal->isoFormat('YYYY'),
+        $tanggalSekarang = new Carbon;
+        // $tanggal = new Carbon('06-06-2025');
+        if ($tanggalSekarang > $pengembalian->peminjaman->tanggal_kembali) {
+            $this->tanggal = true;
+            $this->tanggalKembali = [
+                'hari' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('D'),
+                'bulan' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('M'),
+                'tahun' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('YYYY'),
+            ];
+            $this->tanggalKembaliOver = [
+                'hari' => $tanggalSekarang->isoFormat('D'),
+                'bulan' => $tanggalSekarang->isoFormat('M'),
+                'tahun' => $tanggalSekarang->isoFormat('YYYY'),
             ];
         } else {
-            $this->stateTanggal = [
-                'tanggal_kembali' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('DD'),
-                'bulan_kembali' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('MM'),
-                'tahun_kembali' => $pengembalian->peminjaman->tanggal_kembali->isoFormat('YYYY'),
+            $this->tanggalKembali = [
+                'hari' => $tanggalSekarang->isoFormat('D'),
+                'bulan' => $tanggalSekarang->isoFormat('M'),
+                'tahun' => $tanggalSekarang->isoFormat('YYYY'),
             ];
         }
         $this->dispatchBrowserEvent('show-form-modal');
@@ -61,16 +58,14 @@ class ListPengembalianBuku extends Component
 
     public function prosesKonfirmasi()
     {
-        $tanggal_kembali = $this->stateTanggal['tahun_kembali'] . '-' . $this->stateTanggal['bulan_kembali'] . '-' . $this->stateTanggal['tanggal_kembali'];
-        $this->state['tanggal_kembali'] = $tanggal_kembali;
-
-        if ($this->tanggal_kembali_over) {
+        $this->state['tanggal_kembali'] = $this->tanggalKembali['tahun'] . '-' . $this->tanggalKembali['bulan'] . '-' . $this->tanggalKembali['hari'];
+        if ($this->tanggal) {
             $rule = 'required';
-            $tanggal_kembali_over = $this->stateTanggal['tahun_kembali_over'] . '-' . $this->stateTanggal['bulan_kembali_over'] . '-' . $this->stateTanggal['tanggal_kembali_over'];
-            $this->state['tanggal_kembali_over'] = $tanggal_kembali_over;
+            $this->state['tanggal_kembali_over'] = $this->tanggalKembaliOver['tahun'] . '-' . $this->tanggalKembaliOver['bulan'] . '-' . $this->tanggalKembaliOver['hari'];
         } else {
             $rule = 'sometimes';
         }
+
         $validatedData = $this->validate([
             'state.denda' => $rule . '|integer',
             'state.tanggal_kembali' => 'sometimes|date',

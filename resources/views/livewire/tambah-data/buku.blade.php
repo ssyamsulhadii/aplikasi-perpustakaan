@@ -94,37 +94,16 @@
                 </div>
                 <form wire:submit.prevent="{{ $bukuItem ? 'update' : 'store' }}">
                     <div class="modal-body">
-                        <div class="form-group">
-                            <select class="form-select @error('state.kategori_id') is-invalid @enderror" id="basicSelect" wire:model.defer="state.kategori_id">
-                                <option value="">Pilih kategori buku</option>
-                                @foreach($kategori_ as $kategori)
-                                    <option value="{{ $kategori->id }}">{{ $kategori->rak->nama }} || {{ $kategori->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Judul buku</label>
-                            <input type="text" wire:model.defer="state.judul" placeholder="Judul buku" class="form-control @error('state.judul') is-invalid @enderror">
-                            <x-pesan.error-message error="state.judul" />
-                        </div>
-                        <div class="form-group">
-                            <label>Penulis</label>
-                            <input type="text" wire:model.defer="state.penulis" placeholder="Penulis" class="form-control @error('state.judul') is-invalid @enderror">
-                            <x-pesan.error-message error="state.penulis" />
-                        </div>
-                        <div class="form-group">
-                            <label>Penerbit</label>
-                            <input type="text" wire:model.defer="state.penerbit" placeholder="Penerbit" class="form-control @error('state.penerbit') is-invalid @enderror">
-                            <x-pesan.error-message error="state.penerbit" />
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="text" wire:model.defer="state.jumlah" placeholder="Jumlah Buku" class="form-control @error('state.jumlah') is-invalid @enderror">
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" wire:model.defer="state.dibaca" placeholder="Dibaca" class="form-control @error('state.dibaca') is-invalid @enderror">
-                                </div>
+                        <x-form.basic.selection-group name="state.kategori_id" label="Pilih Kategori Buku" :result="$kategori_"/>
+                        <x-form.basic.input-group  type="text" name="state.judul" label="Judul Buku"/>
+                        <x-form.basic.input-group  type="text" name="state.penulis" label="Penulis Buku"/>
+                        <x-form.basic.input-group  type="text" name="state.penerbit" label="Penebrit Buku"/>
+                        <div class="row">
+                            <div class="col-6">
+                                <x-form.basic.input-group  type="text" name="state.jumlah" label="Jumlah Buku"/>
+                            </div>
+                            <div class="col-6">
+                                <x-form.basic.input-group  type="text" name="state.dibaca" label="Buku Dibaca"/>
                             </div>
                         </div>
                         <div class="text-center" x-data>

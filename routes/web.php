@@ -32,10 +32,10 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('akses.level-admin')->group(function () {
         Route::get('pengguna', Pengguna::class)->name('pengguna');
         Route::get('laporan', Laporan::class)->name('admin.laporan');
-        Route::get('cetak-anggota-peminjaman', [CetakController::class, 'cetakAnggotaPeminjaman'])->name('cetak.anggota-peminjaman');
-        Route::get('cetak-anggota-pengembalian-terlambat', [CetakController::class, 'cetakAnggotaPengembalianTerlambat'])->name('cetak.anggota-pengembalian-terlambat');
+        Route::get('cetak-anggota-peminjaman/{tahun}', [CetakController::class, 'cetakAnggotaPeminjaman'])->name('cetak.anggota-peminjaman');
+        Route::get('cetak-anggota-pengembalian-terlambat/{tahun}', [CetakController::class, 'cetakAnggotaPengembalianTerlambat'])->name('cetak.anggota-pengembalian-terlambat');
         Route::get('cetak-buku-favorite', [CetakController::class, 'cetakBukuFavorite'])->name('cetak.buku-favorite');
-        Route::get('cetak-pendaftaran-pengguna', [CetakController::class, 'cetakPendaftaranPengguna'])->name('cetak.pendaftaran-pengguna');
+        Route::get('cetak-pendaftaran-pengguna/{tahun}/{opsi}', [CetakController::class, 'cetakPendaftaranPengguna'])->name('cetak.pendaftaran-pengguna');
     });
 
     Route::middleware('akses.level-admin-buku')->group(

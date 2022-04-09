@@ -62,20 +62,8 @@
                 </div>
                 <form wire:submit.prevent="{{ $kategoriItem ? 'update' : 'store' }}">
                     <div class="modal-body">
-                        <div class="form-group">
-                            <select class="form-select @error('state.rak_id') is-invalid @enderror" wire:model.defer="state.rak_id">
-                                <option value="">Pilih Rak</option>
-                                @foreach ($rak_ as $rak)
-                                    <option value="{{ $rak->id }}">{{ $rak->nama }}</option>
-                                @endforeach
-                            </select>
-                            <x-pesan.error-message error="state.rak_id" />
-                        </div>
-                        <label>Nama kategori buku</label>
-                        <div class="form-group">
-                            <input type="text" wire:model.defer="state.nama" placeholder="Nama kategori buku" class="form-control @error('state.nama') is-invalid @enderror">
-                            <x-pesan.error-message error="state.nama" />
-                        </div>
+                        <x-form.basic.selection-group  name="state.rak_id" label="Pilih Rak Buku" :result="$rak_"/>
+                        <x-form.basic.input-group type="text" name="state.nama" label="Nama Kategori Buku"/>
                     </div>
                     <div class="modal-footer">
                         <button data-bs-dismiss="modal"  class="btn btn-light-secondary">

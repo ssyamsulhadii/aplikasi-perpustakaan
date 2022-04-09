@@ -48,9 +48,14 @@ class Buku extends Component
             'state.dibaca' => 'required|integer',
             'state.jumlah' => 'required|integer',
         ], [
+            'state.kategori_id.required' => 'Kategori buku wajib dipilih.',
             'state.judul.required' => 'Judul buku wajib diiisi.',
             'state.penulis.required' => 'Nama penulis wajib diisi.',
             'state.penerbit.required' => 'Tempat penerbit wajib diisi.',
+            'state.jumlah.required' => 'Jumlah buku wajib diisi.',
+            'state.jumlah.integer' => 'Jumlah buku harus berupa angka.',
+            'state.dibaca.required' => 'Buku dibaca wajib diisi.',
+            'state.dibaca.integer' => 'Buku dibaca harus berupa angka.',
         ]);
         return $validate['state'];
     }

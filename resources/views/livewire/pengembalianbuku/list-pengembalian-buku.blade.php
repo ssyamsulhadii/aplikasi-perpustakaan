@@ -8,57 +8,25 @@
                         <button type="submit" class="btn btn-outline-dark">Cetak</button>
                     </div>
                     <div class="col-lg-10 col-md-8 col-12">
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <select name="tanggal_from" class="form-select" id="basicSelect">
-                                            @for ($i = 1; $i < 31; $i++)
-                                                <option>{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="bulan_from" class="form-select" id="basicSelect">
-                                            @foreach ($bulan as $value)
-                                                <option value="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}" {{ $loop->iteration == $waktu_sekarang->isoFormat("MM") ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="tahun_from" class="form-select" id="basicSelect">
-                                            @for ($i = 2021; $i < 2030; $i++)
-                                                <option {{ $i == $waktu_sekarang->isoFormat("YYYY") ? 'selected' : '' }}>{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label>Tanggal Awal</label>
+                                    <x-form.waktu.tanggal tahunAwal="2021" tahunAkhir="2030" :name="[
+                                        'value' => 'tanggal_awal',
+                                        'hari' => 'hari_awal',
+                                        'bulan' => 'bulan_awal',
+                                        'tahun' => 'tahun_awal',
+                                        ]"/>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <select name="tanggal_to" class="form-select" id="basicSelect">
-                                            @for ($i = 1; $i < 31; $i++)
-                                                <option {{ $i == $waktu_sekarang->isoFormat("DD") ? 'selected' : '' }}>{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="bulan_to" class="form-select" id="basicSelect">
-                                            @foreach ($bulan as $value)
-                                                <option value="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}" {{ $loop->iteration == $waktu_sekarang->isoFormat("MM") ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="tahun_to" class="form-select" id="basicSelect">
-                                            @for ($i = 2021; $i < 2030; $i++)
-                                                <option {{ $i == $waktu_sekarang->isoFormat("YYYY") ? 'selected' : '' }}>{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Tanggal Akhir</label>
+                                    <x-form.waktu.tanggal tahunAwal="2021" tahunAkhir="2030" :name="[
+                                        'value' => 'tanggal_akhir',
+                                        'hari' => 'hari_akhir',
+                                        'bulan' => 'bulan_akhir',
+                                        'tahun' => 'tahun_akhir',
+                                        ]"/>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,14 +63,14 @@
                                 <td><div style="width: 5em">{{ $pengembalian->rupiah_denda}}</div></td>
                                 <td>
                                     @if ($pengembalian->fungsi)
-                                        <span wire:click.prevent="pesan" role="button" class="badge bg-primary p-2">
+                                        <span title="Konfirmasi" wire:click.prevent="pesan" role="button" class="badge bg-primary p-2">
                                             <i class="bi bi-check2-all" style="font-size: 20px"></i>
                                         </span>
-                                        <span wire:click.prevent="pulihkan('{{ $pengembalian->id }}')" role="button" class="badge bg-warning p-2">
+                                        <span  title="Pulihkan" wire:click.prevent="pulihkan('{{ $pengembalian->id }}')" role="button" class="badge bg-warning p-2">
                                             <i class="bi bi-shift" style="font-size: 20px"></i>
                                         </span>
                                     @else
-                                        <span wire:click.prevent="konfirmasi('{{ $pengembalian->id }}')" role="button" class="badge bg-primary p-2">
+                                        <span title="Konfirmasi" wire:click.prevent="konfirmasi('{{ $pengembalian->id }}')" role="button" class="badge bg-primary p-2">
                                             <i class="bi bi-check2-all" style="font-size: 20px"></i>
                                         </span>
                                     @endif
@@ -134,63 +102,28 @@
                                 <input disabled placeholder="Kode Pengembalian : {{ $pengembalian->kode }}" class="form-control">
                             </div>
                         </div>
-                        @if ($tanggal_kembali_over)
-                            <div class="form-group">
-                                <input wire:model.defer="state.denda" placeholder="Denda Rp." class="form-control @error('state.denda') is-invalid @enderror">
-                            </div>
+                        @if ($tanggal)
+                            <x-form.basic.input-group type="text" type="text" name="state.denda" label="Denda Rp."/>
                         @endif
                         <div class="form-group">
-                            <div class="row">
-                                <label for="">Tanggal kembali</label>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tanggal_kembali">
-                                        @for ($i = 1; $i < 31; $i++)
-                                            <option >{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.bulan_kembali">
-                                        @foreach ($bulan as $value)
-                                            <option value="{{ $loop->iteration }}">{{ $value }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tahun_kembali">
-                                        @for ($i = 2021; $i < 2030; $i++)
-                                            <option>{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                            </div>
+                            <label >Tanggal Dikembalikan</label>
+                            <x-form.waktu.tanggal tahunAwal="2021" tahunAkhir="2030" :name="[
+                                'value' => 'state.tanggal_kembali',
+                                'hari' => 'tanggalKembali.hari',
+                                'bulan' => 'tanggalKembali.bulan',
+                                'tahun' => 'tanggalKembali.tahun',
+                                ]"/>
                         </div>
-                        @if ($tanggal_kembali_over)
+                        
+                        @if ($tanggal)
                             <div class="form-group">
-                                <div class="row">
-                                    <label for="">Tanggal kembali Over</label>
-                                    <div class="col-4">
-                                        <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tanggal_kembali_over">
-                                            @for ($i = 1; $i < 31; $i++)
-                                                <option >{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.bulan_kembali_over">
-                                            @foreach ($bulan as $value)
-                                                <option value="{{ $loop->iteration }}">{{ $value }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tahun_kembali_over">
-                                            @for ($i = 2021; $i < 2030; $i++)
-                                                <option>{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                </div>
+                                <label >Tanggal Kembali Over</label>
+                                <x-form.waktu.tanggal tahunAwal="2021" tahunAkhir="2030" :name="[
+                                    'value' => 'state.tanggal_kembali_over',
+                                    'hari' => 'tanggalKembaliOver.hari',
+                                    'bulan' => 'tanggalKembaliOver.bulan',
+                                    'tahun' => 'tanggalKembaliOver.tahun',
+                                    ]"/>
                             </div>
                         @endif
 

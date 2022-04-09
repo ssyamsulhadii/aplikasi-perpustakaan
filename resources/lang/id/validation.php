@@ -58,7 +58,7 @@ return [
     'image'                => ':Attribute harus berupa gambar.',
     'in'                   => ':Attribute yang dipilih tidak valid.',
     'in_array'             => ':Attribute tidak ada di dalam :other.',
-    'integer'              => ':Attribute harus berupa bilangan bulat.',
+    'integer'              => 'Bidang ini harus berupa angka bilangan bulat.',
     'ip'                   => ':Attribute harus berupa alamat IP yang valid.',
     'ipv4'                 => ':Attribute harus berupa alamat IPv4 yang valid.',
     'ipv6'                 => ':Attribute harus berupa alamat IPv6 yang valid.',
@@ -96,7 +96,7 @@ return [
     'password'             => 'Kata sandi salah.',
     'present'              => ':Attribute wajib ada.',
     'regex'                => 'Format :attribute tidak valid.',
-    'required'             => ':Attribute wajib diisi .',
+    'required'             => 'Bidang ini tidak boleh kosong .',
     'required_if'          => ':Attribute wajib diisi bila :other adalah :value.',
     'required_unless'      => ':Attribute wajib diisi kecuali :other memiliki nilai :values.',
     'required_with'        => ':Attribute wajib diisi bila terdapat :values.',
@@ -105,10 +105,10 @@ return [
     'required_without_all' => ':Attribute wajib diisi bila sama sekali tidak terdapat :values.',
     'same'                 => ':Attribute dan :other harus sama.',
     'size'                 => [
-        'numeric' => ':Attribute harus berukuran :size.',
-        'file'    => ':Attribute harus berukuran :size kilobyte.',
-        'string'  => ':Attribute harus berukuran :size karakter.',
-        'array'   => ':Attribute harus mengandung :size anggota.',
+        'numeric' => 'Bidang ini harus berukuran :size.',
+        'file'    => 'Bidang ini harus berukuran :size kilobyte.',
+        'string'  => 'Bidang ini harus berukuran :size karakter.',
+        'array'   => 'Bidang ini harus mengandung :size anggota.',
     ],
     'starts_with'          => ':Attribute harus diawali salah satu dari berikut: :values',
     'string'               => ':Attribute harus berupa string.',
@@ -146,6 +146,5 @@ return [
     |
     */
 
-    'attributes' => [
-    ],
+    'attributes' => [],
 ];

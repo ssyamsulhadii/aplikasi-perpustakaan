@@ -1,87 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cetak Data</title>
-    <style>
-        body {
-            background: white;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin: auto;
-        }
-
-
-        th,
-        td {
-            text-align: left;
-            padding: 5px;
-        }
-
-        th {
-            background: DodgerBlue;
-        }
-
-        .no {
-            background: white;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-    </style>
-</head>
-
-<body>
-    <table style="margin-bottom: 10px">
-        @include('laporan.cetak.logo-header', ['barisSatu' => 5, 'barisDua' => 6])
+@extends('laporan.layouts.main-cetak')
+@section('content')
+    <table class="table-item">
         <tr>
-            <td style="text-align: center;" colspan="6"><strong>Laporan Anggota Perpustakaan yang Melakukan Keterlambatan Pengembalian Buku</strong>
+            <td style="text-align: center;"><strong>Laporan Anggota Perpustakaan yang Melakukan Keterlambatan Pengembalian Buku <br> Tahun {{ request('tahun') }}</strong>
             </td>
         </tr>
     </table>
-    <table border=".1">
+    <table class="table-item" border=".1">
         <thead>
-            <tr>
+            <tr style="background: dodgerblue">
                 <th>No</th>
                 <th>Nama</th>
+                <th>Buku</th>
                 <th>Alamat</th>
                 <th>Tanggal Pinjam</th>
                 <th>Tanggal Kembali</th>
                 <th>Tanggal Kembali Over</th>
+                <th>Denda</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($anggota_ as $anggota)
+            @forelse ($result as $value)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $anggota->user->nama }}</td>
-                    <td>{{ $anggota->user->alamat }}</td>
-                    <td class="text-center">
-                        @foreach ($anggota->pengembalian_->where('denda', '!=', null) as $pengembalian)
-                            {{ $pengembalian->peminjaman->tanggal_pinjam->isoFormat('DD-MM-YYYY') }} <br>
-                        @endforeach
-                    </td>
-                    <td class="text-center">
-                        @foreach ($anggota->pengembalian_->where('denda', '!=', null) as $pengembalian)
-                            {{ $pengembalian->peminjaman->tanggal_kembali->isoFormat('DD-MM-YYYY') }} <br>
-                        @endforeach
-                    </td>
-                    <td class="text-center">
-                        @foreach ($anggota->pengembalian_->where('denda', '!=', null) as $pengembalian)
-                            {{ $pengembalian->tanggal2 }} <br>
-                        @endforeach
-                    </td>
+                    <td>{{ $value->peminjaman->user->nama }}</td>
+                    <td>{{ $value->peminjaman->buku->judul }}</td>
+                    <td>{{ $value->peminjaman->user->alamat }}</td>
+                    <td>{{ $value->peminjaman->tanggal_pinjam->isoFormat('DD-MM-YYYY') }}</td>
+                    <td>{{ $value->peminjaman->tanggal_kembali->isoFormat('DD-MM-YYYY') }}</td>
+                    <td>{{ $value->tanggal_kembali_over->isoFormat('DD-MM-YYYY') }}</td>
+                    <td>Rp. {{ $value->denda }}</td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="8" style="text-align: center"><h5>Data tidak ada.</h5></td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
-</body>
-
-</html>
+@endsection

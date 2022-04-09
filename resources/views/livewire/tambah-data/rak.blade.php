@@ -49,11 +49,7 @@
                 </div>
                 <form wire:submit.prevent="{{ $rakItem ? 'update' : 'store' }}">
                     <div class="modal-body">
-                        <label>Nama rak buku</label>
-                        <div class="form-group">
-                            <input type="text" wire:model.defer="nama" placeholder="Nama rak buku" class="form-control @error('nama') is-invalid @enderror">
-                            <x-pesan.error-message error="nama" />
-                        </div>
+                        <x-form.basic.input-group type="text" name="nama" label="Nama Rak Buku"/>
                     </div>
                     <div class="modal-footer">
                         <button data-bs-dismiss="modal"  class="btn btn-light-secondary">
@@ -61,16 +57,16 @@
                             <span class="d-none d-sm-block">Tidak Jadi</span>
                         </button>
                         @if ($rakItem)
-                        <a wire:click.prevent="distroy" class="btn btn-danger">
-                            <i class="bi bi-x-square d-block d-sm-none" style="margin-bottom: 5px"></i>
-                            <span class="d-none d-sm-block">Hapus</span>
-                        </a>
+                            <a wire:click.prevent="distroy" class="btn btn-danger">
+                                <i class="bi bi-x-square d-block d-sm-none" style="margin-bottom: 5px"></i>
+                                <span class="d-none d-sm-block">Hapus</span>
+                            </a>
                         @endif
                         <button  class="btn btn-primary ml-1">
                             <i class="bi bi-save2 d-block d-sm-none" style="margin-bottom: 5px"></i>
                             <span class="d-none d-sm-block">
                                 @if ($rakItem)
-                                Simpan perubahan
+                                    Simpan perubahan
                                 @else
                                     Simpan
                                 @endif

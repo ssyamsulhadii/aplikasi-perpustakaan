@@ -6,10 +6,8 @@ use App\Models\Buku;
 use App\Models\Peminjaman;
 use App\Models\Pengembalian;
 use App\Models\User;
-use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
-use phpDocumentor\Reflection\Types\This;
 
 class ListPeminjamanBuku extends Component
 {
@@ -17,26 +15,33 @@ class ListPeminjamanBuku extends Component
     protected $paginationTheme = 'bootstrap';
     public $peminjamanItem = false;
     public $peminjaman = null;
-    public $bulan =  [];
     public $state = [];
-    public $stateTanggal = [];
+    public $tanggalPinjam = [];
+    public $tanggalKembali = [];
     protected $rules = [
         'state.kode' => 'required|size:3|unique:peminjaman,kode',
-        'state.anggota_id' => 'required|exists:anggota,id',
+        'state.user_id' => 'required|exists:users,id',
         'state.buku_id' => 'required|exists:buku,id',
         'state.tanggal_pinjam' => 'required|date',
         'state.tanggal_kembali' => 'required|date',
         'state.jumlah_pinjam' => 'required|integer',
     ];
+    protected $messages = [
+        'state.user_id.required' => 'Bidang ini harus dipilih.',
+        'state.buku_id.required' => 'Bidang ini harus dipilih.',
+        'state.tanggal_pinjam.required' => 'Format tanggal peminjaman tidak sesuai.',
+        'state.tanggal_pinjam.date' => 'Format tanggal peminjaman tidak sesuai.',
+        'state.tanggal_kembali.required' => 'Format tanggal pengembalian tidak sesuai.',
+        'state.tanggal_kembali.date' => 'Format tanggal pengembalian tidak sesuai.',
+    ];
     public function propertiReset()
     {
-        $this->reset(['peminjamanItem', 'peminjaman', 'bulan', 'state', 'stateTanggal', 'rules']);
+        $this->reset(['peminjamanItem', 'peminjaman', 'state', 'tanggalPinjam', 'tanggalKembali', 'rules']);
         $this->resetValidation();
     }
 
     public function render()
     {
-        $this->bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         return view('livewire.peminjamanbuku.list-peminjaman-buku', [
             'peminjaman_' => Peminjaman::OrderBy('tanggal_kembali', 'DESC')->paginate(5),
             'anggota_' => User::where('level_id', 4)->latest()->get(),
@@ -48,26 +53,26 @@ class ListPeminjamanBuku extends Component
     public function create()
     {
         $this->propertiReset();
-        $tanggal = new Carbon;
-        $this->stateTanggal = [
-            'tanggal_pinjam' => $tanggal->isoFormat('DD'),
-            'bulan_pinjam' => $tanggal->isoFormat('MM'),
-            'tahun_pinjam' => $tanggal->isoFormat('YYYY'),
-            'tanggal_kembali' => $tanggal->isoFormat('DD'),
-            'bulan_kembali' => $tanggal->isoFormat('MM'),
-            'tahun_kembali' => $tanggal->isoFormat('YYYY'),
-        ];
         $this->dispatchBrowserEvent('show-form-modal');
     }
 
     public function store()
     {
-        $tanggal_pinjam = $this->stateTanggal['tahun_pinjam'] . '-' . $this->stateTanggal['bulan_pinjam'] . '-' . $this->stateTanggal['tanggal_pinjam'];
-        $tanggal_kembali = $this->stateTanggal['tahun_kembali'] . '-' . $this->stateTanggal['bulan_kembali'] . '-' . $this->stateTanggal['tanggal_kembali'];
-        $this->state['tanggal_pinjam'] = $tanggal_pinjam;
-        $this->state['tanggal_kembali'] = $tanggal_kembali;
+        if (count($this->tanggalPinjam) !== 3) {
+            return $this->validate();
+        }
+        if (count($this->tanggalKembali) !== 3) {
+            return $this->validate();
+        }
+
+        $this->state['tanggal_pinjam'] = $this->tanggalPinjam['tahun'] . '-' . $this->tanggalPinjam['bulan'] . '-' . $this->tanggalPinjam['hari'];
+        $this->state['tanggal_kembali'] = $this->tanggalKembali['tahun'] . '-' . $this->tanggalKembali['bulan'] . '-' . $this->tanggalKembali['hari'];
 
         $this->validate();
+        $kode = Peminjaman::firstWhere('kode', "PMJ-" . $this->state['kode']);
+        if (!is_null($kode)) {
+            return $this->addError('state.kode', 'Kode peminjaman sudah ada.');
+        }
 
         if ($this->state['jumlah_pinjam'] < 1) {
             $this->dispatchBrowserEvent('pesan', [
@@ -85,7 +90,7 @@ class ListPeminjamanBuku extends Component
             $peminjaman = Peminjaman::create($this->state);
             $pengembalian = new Pengembalian();
             $pengembalian->kode = $this->state['kode'];
-            $peminjaman->pengembalian_()->save($pengembalian);
+            $peminjaman->pengembalian()->save($pengembalian);
 
             $this->propertiReset();
             $this->emit('hideModal');
@@ -112,27 +117,34 @@ class ListPeminjamanBuku extends Component
     public function edit(Peminjaman $peminjaman)
     {
         $this->propertiReset();
-        $this->dispatchBrowserEvent('show-form-modal');
         $this->peminjamanItem = true;
         $this->peminjaman = $peminjaman;
-        $this->state = $peminjaman->only(['anggota_id', 'buku_id', 'jumlah_pinjam']);
+        $this->state = $peminjaman->only(['user_id', 'buku_id', 'jumlah_pinjam']);
         $this->state['kode'] = substr($peminjaman->kode, 4);
-        $this->stateTanggal = [
-            'tanggal_pinjam' => $peminjaman->tanggal_pinjam->isoFormat('DD'),
-            'bulan_pinjam' => $peminjaman->tanggal_pinjam->isoFormat('MM'),
-            'tahun_pinjam' => $peminjaman->tanggal_pinjam->isoFormat('YYYY'),
-            'tanggal_kembali' => $peminjaman->tanggal_kembali->isoFormat('DD'),
-            'bulan_kembali' => $peminjaman->tanggal_kembali->isoFormat('MM'),
-            'tahun_kembali' => $peminjaman->tanggal_kembali->isoFormat('YYYY'),
+        $this->tanggalPinjam = [
+            'hari' => $peminjaman->tanggal_pinjam->isoFormat('D'),
+            'bulan' => $peminjaman->tanggal_pinjam->isoFormat('M'),
+            'tahun' => $peminjaman->tanggal_pinjam->isoFormat('YYYY'),
         ];
+        $this->tanggalKembali = [
+            'hari' => $peminjaman->tanggal_kembali->isoFormat('D'),
+            'bulan' => $peminjaman->tanggal_kembali->isoFormat('M'),
+            'tahun' => $peminjaman->tanggal_kembali->isoFormat('YYYY'),
+        ];
+        $this->dispatchBrowserEvent('show-form-modal');
     }
 
     public function update()
     {
-        $tanggal_pinjam = $this->stateTanggal['tahun_pinjam'] . '-' . $this->stateTanggal['bulan_pinjam'] . '-' . $this->stateTanggal['tanggal_pinjam'];
-        $tanggal_kembali = $this->stateTanggal['tahun_kembali'] . '-' . $this->stateTanggal['bulan_kembali'] . '-' . $this->stateTanggal['tanggal_kembali'];
-        $this->state['tanggal_pinjam'] = $tanggal_pinjam;
-        $this->state['tanggal_kembali'] = $tanggal_kembali;
+        if (count($this->tanggalPinjam) !== 3) {
+            return $this->validate();
+        }
+        if (count($this->tanggalKembali) !== 3) {
+            return $this->validate();
+        }
+
+        $this->state['tanggal_pinjam'] = $this->tanggalPinjam['tahun'] . '-' . $this->tanggalPinjam['bulan'] . '-' . $this->tanggalPinjam['hari'];
+        $this->state['tanggal_kembali'] = $this->tanggalKembali['tahun'] . '-' . $this->tanggalKembali['bulan'] . '-' . $this->tanggalKembali['hari'];
 
         $this->validate();
 
@@ -161,7 +173,7 @@ class ListPeminjamanBuku extends Component
                 } else {
                     // lakukan update nilai jumlah buku
                     $buku_lama->update(['jumlah' => $sisa_buku]);
-                    $this->peminjaman->pengembalian_()->update(['kode' => 'PGN-' . $this->state['kode']]);
+                    $this->peminjaman->pengembalian()->update(['kode' => 'PGN-' . $this->state['kode']]);
                     $this->peminjaman->update($this->state);
                     $this->emit('hideModal');
                     $this->dispatchBrowserEvent('pesan', ['teks' => "Data peminjaman berhasil diperbarui."]);
@@ -181,7 +193,7 @@ class ListPeminjamanBuku extends Component
                     'dibaca' => $buku_baru->dibaca + 1,
                 ]);
                 $this->peminjaman->update($this->state);
-                $this->peminjaman->pengembalian_()->update(['kode' => 'PGN-' . $this->state['kode']]);
+                $this->peminjaman->pengembalian()->update(['kode' => 'PGN-' . $this->state['kode']]);
                 $this->emit('hideModal');
                 $this->dispatchBrowserEvent('pesan', ['teks' => "Data peminjaman berhasil diperbarui.",]);
                 return false;
@@ -195,7 +207,7 @@ class ListPeminjamanBuku extends Component
         }
 
         $this->peminjaman->update($this->state);
-        $this->peminjaman->pengembalian_()->update(['kode' => 'PGN-' . $this->state['kode']]);
+        $this->peminjaman->pengembalian()->update(['kode' => 'PGN-' . $this->state['kode']]);
         $this->emit('hideModal');
         $this->dispatchBrowserEvent('pesan', [
             'teks' => "Data peminjaman berhasil diperbarui.",

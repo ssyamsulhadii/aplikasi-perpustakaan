@@ -20,11 +20,11 @@ class PeminjamanFactory extends Factory
         $tanggal_pinjam = new \Carbon\Carbon($tanggal);
         return [
             'kode' => $this->faker->bothify('###'),
-            'user_id' => $this->faker->numberBetween(1, $anggotaCount),
+            'user_id' => $this->faker->numberBetween(4, $anggotaCount),
             'buku_id' => $this->faker->numberBetween(1, \App\Models\Buku::count()),
             'tanggal_pinjam' => $tanggal_pinjam->isoFormat('YYYY-MM-DD'),
             'tanggal_kembali' => $tanggal_pinjam->addDay(3)->isoFormat('YYYY-MM-DD'),
-            'jumlah_pinjam' => rand(1, 3),
+            'jumlah_pinjam' => rand(1, 9),
             'status' => 1
         ];
     }

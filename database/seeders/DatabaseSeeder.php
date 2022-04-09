@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(LevelSeeder::class);
-        User::factory(9)->create();
+        $this->call(UserSeeder::class);
         for ($i = 1; $i <= 8; $i++) {
             Rak::create([
                 'nama' => 'Rak ' . $i,

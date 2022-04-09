@@ -10,54 +10,22 @@
                     <div class="col-lg-10 col-md-8 col-12">
                         <div class="row">
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <select name="tanggal_from" class="form-select" id="basicSelect">
-                                            @for ($i = 1; $i < 31; $i++)
-                                                <option>{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="bulan_from" class="form-select" id="basicSelect">
-                                            @foreach ($bulan as $value)
-                                                <option value="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}" {{ $loop->iteration == $waktu_sekarang->isoFormat("MM") ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="tahun_from" class="form-select" id="basicSelect">
-                                            @for ($i = 2021; $i < 2030; $i++)
-                                                <option {{ $i == $waktu_sekarang->isoFormat("YYYY") ? 'selected' : '' }}>{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                </div>
+                                <label>Tanggal Awal</label>
+                                <x-form.waktu.tanggal tahunAwal="2021" tahunAkhir="2030" :name="[
+                                    'value' => 'tanggal_awal',
+                                    'hari' => 'hari_awal',
+                                    'bulan' => 'bulan_awal',
+                                    'tahun' => 'tahun_awal',
+                                    ]"/>
                             </div>
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <select name="tanggal_to" class="form-select" id="basicSelect">
-                                            @for ($i = 1; $i < 31; $i++)
-                                                <option {{ $i == $waktu_sekarang->isoFormat("DD") ? 'selected' : '' }}>{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="bulan_to" class="form-select" id="basicSelect">
-                                            @foreach ($bulan as $value)
-                                                <option value="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}" {{ $loop->iteration == $waktu_sekarang->isoFormat("MM") ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="tahun_to" class="form-select" id="basicSelect">
-                                            @for ($i = 2021; $i < 2030; $i++)
-                                                <option {{ $i == $waktu_sekarang->isoFormat("YYYY") ? 'selected' : '' }}>{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                </div>
+                                <label>Tanggal Akhir</label>
+                                <x-form.waktu.tanggal tahunAwal="2021" tahunAkhir="2030" :name="[
+                                    'value' => 'tanggal_akhir',
+                                    'hari' => 'hari_akhir',
+                                    'bulan' => 'bulan_akhir',
+                                    'tahun' => 'tahun_akhir',
+                                    ]"/>
                             </div>
                         </div>
                     </div>
@@ -133,6 +101,7 @@
             {{ $peminjaman_->onEachSide(2)->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>
+
     <div wire:ignore.self class="modal fade text-left" id="formModal" role="dialog" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -144,93 +113,40 @@
                 </div>
                 <form wire:submit.prevent="{{ $peminjamanItem ? 'update' : 'store' }}">
                     <div class="modal-body">
-                        <label for="">Kode Peminjaman</label>
-                        <div class="input-group mb-2">
-                            <span class="input-group-text">
-                                PMJ
-                            </span>
-                            <input wire:model.defer="state.kode" type="text" placeholder="000" class="form-control @error('state.kode') is-invalid @enderror">
+                        <div class="form-group">
+                            <label for="">Kode Peminjaman</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text @error('state.kode') border-danger @enderror">
+                                    PMJ
+                                </span>
+                                <input wire:model.defer="state.kode" type="text" placeholder="000" class="form-control @error('state.kode') is-invalid @enderror">
+                                <x-pesan.error-message error="state.kode" />
+                            </div>
                         </div>
-                        <fieldset class="form-group">
-                            <select wire:model.defer="state.anggota_id" class="form-select @error('state.anggota_id') is-invalid @enderror"" id="basicSelect">
-                                <option>Pilih Anggota</option>
-                                @foreach ($anggota_ as $anggota)
-                                    <option value="{{ $anggota->id }}">
-                                        ID{{ str_pad($anggota->id, 3, '***', STR_PAD_LEFT) }}&ensp;{{ $anggota->nama }}</option>
-                                @endforeach
-                            </select>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <select wire:model.defer="state.buku_id" class="form-select @error('state.buku_id') is-invalid @enderror" id="basicSelect">
-                                <option>Pilih Buku</option>
-                                @foreach ($buku_ as $buku)
-                                    <option value="{{ $buku->id }}">{{ $buku->judul }}</option>
-                                @endforeach
-                            </select>
-                        </fieldset>
-
+                        <x-form.basic.selection-group name="state.user_id" label="Pilih Anggota" :result="$anggota_"/>
+                        <x-form.basic.selection-group name="state.buku_id" label="Pilih Buku" :result="$buku_"/>
 
                         {{-- tanggal pinjam --}}
                         <div class="form-group">
-                            <div class="row">
-                                <label for="">Tanggal pinjam</label>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tanggal_pinjam">
-                                        @for ($i = 1; $i < 31; $i++)
-                                            <option >{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.bulan_pinjam">
-                                        @foreach ($bulan as $value)
-                                            <option value="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}">{{ $value }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tahun_pinjam">
-                                        @for ($i = 2021; $i < 2030; $i++)
-                                            <option>{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                            </div>
+                            <label >Tanggal Peminjaman</label>
+                            <x-form.waktu.tanggal tahunAwal="2021" tahunAkhir="2030" :name="[
+                                'value' => 'state.tanggal_pinjam',
+                                'hari' => 'tanggalPinjam.hari',
+                                'bulan' => 'tanggalPinjam.bulan',
+                                'tahun' => 'tanggalPinjam.tahun',
+                                ]"/>
                         </div>
-                        {{-- tanggal kembali --}}
                         <div class="form-group">
-                            <div class="row">
-                                <label for="">Tanggal kembali</label>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tanggal_kembali">
-                                        @for ($i = 1; $i < 31; $i++)
-                                            <option >{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.bulan_kembali">
-                                        @foreach ($bulan as $value)
-                                            <option value="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}">{{ $value }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <select class="form-select" id="basicSelect" wire:model.defer="stateTanggal.tahun_kembali">
-                                        @for ($i = 2021; $i < 2030; $i++)
-                                            <option>{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                            </div>
+                            <label >Tanggal Pengembalian</label>
+                            <x-form.waktu.tanggal tahunAwal="2021" tahunAkhir="2030" :name="[
+                                'value' => 'state.tanggal_kembali',
+                                'hari' => 'tanggalKembali.hari',
+                                'bulan' => 'tanggalKembali.bulan',
+                                'tahun' => 'tanggalKembali.tahun',
+                                ]"/>
                         </div>
-
-
-
-                        <div class="form-group">
-                            <div class="col-4">
-                                <input wire:model.defer="state.jumlah_pinjam" type="text" placeholder="Jumlah Pinjam" class="form-control @error('state.jumlah_pinjam') is-invalid @enderror">
-                            </div>
+                        <div class="col-6">
+                            <x-form.basic.input-group type="text" type="text" name="state.jumlah_pinjam" label="Jumlah Pinjam"/>
                         </div>
                     </div>
                     <div class="modal-footer">
