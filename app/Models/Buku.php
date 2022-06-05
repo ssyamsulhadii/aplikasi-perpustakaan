@@ -29,4 +29,8 @@ class Buku extends Model
         $nama_file = $this->sampul == null ? 'default.jpg' : $this->sampul;
         return asset('storage/sampul/' . $nama_file);
     }
+    public function getNamaSmapulBukuAttribute()
+    {
+        return $this->sampul == null ? 'default.jpg' : $this->sampul;
+    }
 }

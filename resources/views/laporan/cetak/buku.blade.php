@@ -30,7 +30,7 @@
         @forelse ($buku_ as $buku)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td><img style="width: 40px; height: 40px;" src="{{ $buku->sampul_url }}" ></td>
+                <td><img style="width: 40px; height: 40px;" src="storage/sampul/{{ $buku->nama_smapul_buku }}" ></td>
                 <td style="width: 120px">{{ $buku->judul }}</td>
                 <td style="width: 120px">{{ $buku->penulis }}</td>
                 <td style="width: 120px">{{ $buku->penerbit }}</td>

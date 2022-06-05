@@ -111,6 +111,12 @@
                             <span>Buku Saya</span>
                         </a>
                     </li>
+                    <li class="menu-item  text-warning">
+                        <a href="{{ route('cetak.kartu-anggota', ['user'=>auth()->user()->id]) }}" class='menu-link text-warning' target="blank">
+                            <i class="bi bi-person-bounding-box"></i>
+                            <span>Cetak Kartu Anggota</span>
+                        </a>
+                    </li>
                 @endif
             @endauth
 

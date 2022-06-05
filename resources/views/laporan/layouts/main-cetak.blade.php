@@ -20,7 +20,8 @@
                     <table style="text-align: center; margin: auto;">
                         <tr>
                             <td>
-                                <img src="{{ asset('assets/images/logo/logo-disperpus-40.png') }}">
+                                <img src="assets/images/logo/logo-disperpus-40.png">
+                                {{-- <img src="{{ asset('assets/images/logo/logo-disperpus-40.png') }}"> --}}
                             </td>
                             <td>
                                 <h5 style="font-size: 14px; margin-bottom: 5px;">DINAS KEARSIPAN DAN PERPUSTAKAAN KOTA KAPUAS (DISARPUSTAKA)</h5>

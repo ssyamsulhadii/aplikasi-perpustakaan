@@ -4,7 +4,6 @@ namespace App\Http\Controllers\cetak;
 
 use Spipu\Html2Pdf\Html2Pdf;
 use App\Http\Controllers\Controller;
-use App\Models\Peminjaman;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -161,5 +160,13 @@ class CetakController extends Controller
         $inst_pdf->pdf->SetTitle('Cetak Data Buku Terfavorite yang Sering dipinjam');
         $inst_pdf->writeHTML(view('laporan.cetak.admin.buku-favorite', compact('kategori_')));
         $inst_pdf->output("data-buku-favorite.pdf");
+    }
+
+    public function cetakKartuAnggota(User $user)
+    {
+        $inst_pdf = new Html2Pdf('L', 'A7', 'en', true, 'UTF-8', [0, 5, 0, 0]);
+        $inst_pdf->writeHTML(view('laporan.cetak.kartu-anggota', compact('user')));
+        $inst_pdf->pdf->SetTitle('Cetak Data Buku Terfavorite yang Sering dipinjam');
+        $inst_pdf->output("kartu-anggota-$user->nama.pdf");
     }
 }

@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('list-buku-saya', ListBukuSaya::class)->name('list-buku-saya');
     Route::get('profil', Profil::class)->prefix('umum')->name('umum.profil');
     Route::get('ganti-password', GantiPassword::class)->prefix('umum')->name('umum.ganti-password');
+    Route::get('cetak-kartu-anggota/{user}', [CetakController::class, 'cetakKartuAnggota'])->name('cetak.kartu-anggota');
 
     Route::middleware('akses.level-admin')->group(function () {
         Route::get('pengguna', Pengguna::class)->name('pengguna');

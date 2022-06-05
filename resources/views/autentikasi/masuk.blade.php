@@ -38,7 +38,7 @@
                             <button type="submit" class="btn btn-primary btn-block shadow-lg mt-2">Masuk</button>
                         </form>
                         <p class="text-gray-600 mt-2">Belum mempunyai akun ? <a href="{{ route('register') }}" class="font-bold">daftar</a>.</p>
-                        <p class="text-gray-600 mt-2"><a href="{{ route('password.request') }}" class="font-bold">Lupa password</a>.</p>
+                        {{-- <p class="text-gray-600 mt-2"><a href="{{ route('password.request') }}" class="font-bold">Lupa password</a>.</p> --}}
                 </div>
             </div>
         </div>

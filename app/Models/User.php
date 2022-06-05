@@ -70,6 +70,11 @@ class User extends Authenticatable
         return asset('assets/images/profil/' . $nama_file);
     }
 
+    public function getNamaGambarAttribute()
+    {
+        return $this->gambar == null ? 'default.jpg' : $this->gambar;
+    }
+
     // akses menu level admin
     public function getLevelAdminAttribute()
     {
