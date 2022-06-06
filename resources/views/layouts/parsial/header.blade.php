@@ -4,7 +4,7 @@
             <div>
                 <img src="{{ asset('assets/images/logo/logo-disperpus.png') }}" alt="Logo" width="55px" height="60px" srcset="">
                 <div class="text-left d-lg-inline h4 d-none">
-                    Dinas Kearsipan dan Perpustakaan
+                    SMAN 1 Klompang Hulu
                 </div>
             </div>
             <div class="header-top-right">
