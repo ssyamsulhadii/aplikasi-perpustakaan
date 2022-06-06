@@ -28,7 +28,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
-            'telpon' => 'sometimes',
+            'telpon' => 'sometimes|max:15',
             'alamat' => 'sometimes',
         ])->validateWithBag('updateProfileInformation');
 

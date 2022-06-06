@@ -31,7 +31,7 @@
                             <x-form.profil-elemen.input-group type="text" wire:model.defer="state.nama" name="nama" label="Nama Lengkap"/>
                             <x-form.profil-elemen.input-group type="text" wire:model.defer="state.email" name="email" label="Alamat Email"/>
                             <x-form.profil-elemen.input-group type="text" wire:model.defer="state.telpon" name="telpon" label="No Telpon"/>
-                            <x-form.profil-elemen.input-group type="text" wire:model.defer="state.alamat" name="telpon" label="Alamat"/>
+                            <x-form.profil-elemen.input-group type="text" wire:model.defer="state.alamat" name="alamat" label="Alamat"/>
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
                                 <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
