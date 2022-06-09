@@ -5,9 +5,9 @@
                 <p>{{ date("Y") }} &copy; Apikasi Perpustakaan</p>
                 <small>Hak Cipta Dilindungi Undang-Undang. Dibuat Dengan <b>Kreatifitas Mahasiswa</b></small>
             </div>
-            <div class="float-end">
+            {{-- <div class="float-end">
                 <p>Web Programming By <strong class="text-primary"> ShiftWorldCode</strong></p>
-            </div>
+            </div> --}}
         </div>
     </div>
 </footer>

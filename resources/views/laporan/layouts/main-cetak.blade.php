@@ -20,12 +20,12 @@
                     <table style="text-align: center; margin: auto;">
                         <tr>
                             <td>
-                                <img src="assets/images/logo/logo-disperpus-40.png">
+                                <img src="assets/images/logo/sman-1-kelumpang-hulu.png" style="width: 40px">
                                 {{-- <img src="{{ asset('assets/images/logo/logo-disperpus-40.png') }}"> --}}
                             </td>
                             <td>
-                                <h5 style="font-size: 14px; margin-bottom: 5px;">DINAS KEARSIPAN DAN PERPUSTAKAAN KOTA KAPUAS (DISARPUSTAKA)</h5>
-                                <p>Jl. Raden  Ajeng Kartini No.110 Kuala Kapuas</p>
+                                <h5 style="font-size: 14px; margin-bottom: 5px;">PERPUSTAKAAN SMAN 1 KELUMPANG HULU</h5>
+                                <p>Jl. Poros Kalseltim Km. 310 Kec. Kelumpang Hulu Kab. Kotabaru</p>
                             </td>
                         </tr>
                         <tr>
@@ -40,7 +40,7 @@
             <table align="right" style="text-align: center; padding-right: 25px; margin-bottom: 50px">
                 <tr>
                     <td>
-                        <p style="text-align: center">Kapuas, {{ date('m F Y') }}</p>
+                        <p style="text-align: center">Kelumpang Hulu, {{ date('m F Y') }}</p>
                         <p style="margin-top: 60px"><u>Pimpinan</u> <br> 1212345517</p>
                     </td>
                 </tr>

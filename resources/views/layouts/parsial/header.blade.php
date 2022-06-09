@@ -2,9 +2,9 @@
     <div class="header-top pt-2 pb-2">
         <div class="container">
             <div>
-                <img src="{{ asset('assets/images/logo/logo-disperpus.png') }}" alt="Logo" width="55px" height="60px" srcset="">
+                <img src="{{ asset('assets/images/logo/sman-1-kelumpang-hulu.png') }}" alt="Logo" width="55px" height="60px" srcset="">
                 <div class="text-left d-lg-inline h4 d-none">
-                    SMAN 1 Klompang Hulu
+                    PERPUSTAKAAN SMAN 1 KELUMPANG HULU
                 </div>
             </div>
             <div class="header-top-right">
