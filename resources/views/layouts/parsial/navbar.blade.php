@@ -2,27 +2,11 @@
     <div class="container">
         <ul>
             <li
-                class="menu-item  has-sub">
-                <a href="#" class='menu-link text-warning {{ Request::is('beranda*') ? 'text-white' : 'text-warning' }}'>
+                class="menu-item ">
+                <a href="{{ route('list-buku') }}" class='menu-link {{ Request::is('list-buku') ? 'text-white' : 'text-warning' }}'>
                     <i class="bi bi-house"></i>
-                    <span>Beranda</span>
+                    <span>List Buku</span>
                 </a>
-                <div
-                    class="submenu ">
-                    <div class="submenu-group-wrapper">
-                        <ul class="submenu-group">
-                            <li
-                                class="submenu-item  ">
-                                <a href="{{ route('list-buku') }}"
-                                    class='submenu-link'>Buku</a>
-                            </li>
-                            <li
-                                class="submenu-item  ">
-                                <a href="{{ route('tentang-kami') }}"
-                                    class='submenu-link'>Tentang Kami</a>
-                            </li>
-                    </div>
-                </div>
             </li>
             @auth
                 @if (auth()->user()->level_admin)

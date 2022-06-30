@@ -19,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', fn () => view('blank-page'))->middleware(['auth', 'verified']);
 
-Route::get('/', ListBuku::class);
-Route::get('list-buku', ListBuku::class)->prefix('beranda')->name('list-buku');
-Route::get('tentang-kami', TentangKami::class)->prefix('beranda')->name('tentang-kami');
+Route::get('/', function () {
+    return redirect(route('list-buku'));
+});
+Route::get('list-buku', ListBuku::class)->name('list-buku');
+// Route::get('tentang-kami', TentangKami::class)->prefix('beranda')->name('tentang-kami');
 
 Route::middleware(['auth'])->group(function () {
 

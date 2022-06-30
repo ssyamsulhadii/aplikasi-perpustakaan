@@ -33,8 +33,8 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($peminjaman_ as $peminjaman)
-                <tr style="background: dodgerblue">
+            @forelse ($peminjaman_ as $peminjaman)
+                <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $peminjaman->kode }}</td>
                     <td>{{ $peminjaman->user->nama }}</td>
