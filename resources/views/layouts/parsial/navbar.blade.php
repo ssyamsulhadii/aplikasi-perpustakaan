@@ -81,14 +81,15 @@
             @endauth
 
             @auth
-                @if (auth()->user()->level_admin_transaksi)
+                @if (auth()->user()->level_admin)
                     <li class="menu-item  text-warning">
                         <a href="{{ route('admin.laporan') }}" class='menu-link text-warning {{ Route::is('admin.laporan') ? 'text-white' : 'text-warning' }}'>
                             <i class="bi bi-file-earmark-text"></i>
                             <span>Laporan</span>
                         </a>
                     </li>
-                @else
+                @endif
+                @if (auth()->user()->level_id == 4)
                     <li class="menu-item  text-warning">
                         <a href="{{ route('list-buku-saya') }}" class='menu-link text-warning {{ Route::is('list-buku-saya') ? 'text-white' : 'text-warning' }}'>
                             <i class="bi bi-briefcase"></i>
