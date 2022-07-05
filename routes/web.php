@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CaseStudyCotnroller;
 use App\Http\Controllers\cetak\CetakController;
 use App\Http\Livewire\Admin\Laporan;
 use App\Http\Livewire\Admin\Pengguna;
@@ -62,3 +63,5 @@ Route::middleware(['auth'])->group(function () {
         }
     );
 });
+
+Route::resource('case-study', CaseStudyCotnroller::class)->except('show');

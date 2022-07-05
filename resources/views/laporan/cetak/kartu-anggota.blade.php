@@ -15,11 +15,11 @@
         </tr>
         <tr>
             <td>
-                <img src="assets/images/logo/logo-disperpus-40.png">
+                <img src="assets/images/logo/sman-1-kelumpang-hulu.png" style="width: 40px">
             </td>
             <td>
-                <h5>DINAS KEARSIPAN DAN PERPUSTAKAAN KOTA KAPUAS <br> (DISARPUSTAKA)</h5>
-                <p>Jl. Raden  Ajeng Kartini No.110 Kuala Kapuas</p>
+                <h5 style="font-size: 12px; margin-bottom: 5px;">PERPUSTAKAAN SMAN 1 KELUMPANG HULU</h5>
+                <p>Jl. Poros Kalseltim Km. 310 <br>Kec. Kelumpang Hulu Kab. Kotabaru</p>
             </td>
         </tr>
         <tr>
