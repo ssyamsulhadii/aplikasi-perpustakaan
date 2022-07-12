@@ -5,7 +5,7 @@
                 <div class="card-content">
                     <div class="card-body">
                         <div class="text-center">
-                            <h4 class="card-title">Data Laporan Perpustakaan Umum Dinas Kearsipan dan Perpustakaan</h4>
+                            <h4 class="card-title">Data Laporan PERPUSTAKAAN SMAN 1 KELUMPANG HULU</h4>
                             <h5>Periode : {{ $tahun }}</h5>
                             <select wire:change="pilihPeriode($event.target.value)" class="form-select" id="basicSelect">
                                 <option value="">Pilih Tahun</option>                                
