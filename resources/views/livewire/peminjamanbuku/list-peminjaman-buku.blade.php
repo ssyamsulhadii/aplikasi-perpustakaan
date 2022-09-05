@@ -124,8 +124,13 @@
                             </div>
                         </div>
                         <x-form.basic.selection-group name="state.user_id" label="Pilih Anggota" :result="$anggota_"/>
-                        <x-form.basic.selection-group name="state.buku_id" label="Pilih Buku" :result="$buku_"/>
-
+                        @if ($peminjamanItem)
+                            <x-form.basic.selection-group name="state.buku_id" label="Pilih Buku" :result="$buku_"/>
+                            @else
+                            <x-form.basic.selection-group name="buku.buku_1" label="Pilih Buku" :result="$buku_"/>
+                            <x-form.basic.selection-group name="buku.buku_2" label="Pilih Buku" :result="$buku_"/>
+                            <x-form.basic.selection-group name="buku.buku_3" label="Pilih Buku" :result="$buku_"/>
+                        @endif
                         {{-- tanggal pinjam --}}
                         <div class="form-group">
                             <label >Tanggal Peminjaman</label>
@@ -144,9 +149,6 @@
                                 'bulan' => 'tanggalKembali.bulan',
                                 'tahun' => 'tanggalKembali.tahun',
                                 ]"/>
-                        </div>
-                        <div class="col-6">
-                            <x-form.basic.input-group type="text" type="text" name="state.jumlah_pinjam" label="Jumlah Pinjam"/>
                         </div>
                     </div>
                     <div class="modal-footer">

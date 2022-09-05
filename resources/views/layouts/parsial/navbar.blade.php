@@ -51,6 +51,12 @@
                             </div>
                         </div>
                     </li>
+                    <li class="menu-item  text-warning">
+                        <a href="{{ route('list.request.buku') }}" class='menu-link text-warning {{ Route::is('list.request.buku') ? 'text-white' : 'text-warning' }}'>
+                            <i class="bi bi-journal"></i>
+                            <span>List Request Buku</span>
+                        </a>
+                    </li>
                 @endif
             @endauth
 
@@ -100,6 +106,12 @@
                         <a href="{{ route('cetak.kartu-anggota', ['user'=>auth()->user()->id]) }}" class='menu-link text-warning' target="blank">
                             <i class="bi bi-person-bounding-box"></i>
                             <span>Cetak Kartu Anggota</span>
+                        </a>
+                    </li>
+                    <li class="menu-item  text-warning">
+                        <a href="{{ route('request.buku') }}" class='menu-link text-warning {{ Route::is('request.buku') ? 'text-white' : 'text-warning' }}'>
+                            <i class="bi bi-journal"></i>
+                            <span>Request Buku</span>
                         </a>
                     </li>
                 @endif

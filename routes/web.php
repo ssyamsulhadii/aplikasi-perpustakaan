@@ -12,6 +12,8 @@ use App\Http\Livewire\Peminjamanbuku\ListPeminjamanBuku;
 use App\Http\Livewire\Pengembalianbuku\ListPengembalianBuku;
 use App\Http\Livewire\Pengguna\GantiPassword;
 use App\Http\Livewire\Pengguna\Profil;
+use App\Http\Livewire\Requestbuku\ListRequestBuku;
+use App\Http\Livewire\Requestbuku\RequestBukuLivewire;
 use App\Http\Livewire\TambahData\Buku as TambahDataBuku;
 use App\Http\Livewire\TambahData\Kategori as TambahDataKategori;
 use App\Http\Livewire\TambahData\Rak as TambahDataRak;
@@ -32,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('profil', Profil::class)->prefix('umum')->name('umum.profil');
     Route::get('ganti-password', GantiPassword::class)->prefix('umum')->name('umum.ganti-password');
     Route::get('cetak-kartu-anggota/{user}', [CetakController::class, 'cetakKartuAnggota'])->name('cetak.kartu-anggota');
+    Route::get('request-buku', RequestBukuLivewire::class)->name('request.buku');
 
     Route::middleware('akses.level-admin')->group(function () {
         Route::get('pengguna', Pengguna::class)->name('pengguna');
@@ -49,6 +52,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('buku', TambahDataBuku::class)->prefix('tambah-data')->name('tambah-data.buku');
             Route::get('cetak-kategori', [CetakController::class, 'cetakKategori'])->name('cetak.kategori');
             Route::get('cetak-buku', [CetakController::class, 'cetakBuku'])->name('cetak.buku');
+            Route::get('list-request-buku', ListRequestBuku::class)->name('list.request.buku');
         }
     );
     Route::middleware('akses.level-admin-transaksi')->group(
@@ -63,5 +67,3 @@ Route::middleware(['auth'])->group(function () {
         }
     );
 });
-
-Route::resource('case-study', CaseStudyCotnroller::class)->except('show');

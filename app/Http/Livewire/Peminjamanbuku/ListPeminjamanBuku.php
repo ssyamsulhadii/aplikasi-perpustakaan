@@ -16,19 +16,20 @@ class ListPeminjamanBuku extends Component
     public $peminjamanItem = false;
     public $peminjaman = null;
     public $state = [];
+    public $buku = [];
     public $tanggalPinjam = [];
     public $tanggalKembali = [];
     protected $rules = [
-        'state.kode' => 'required|size:3|unique:peminjaman,kode',
+        'state.kode' => 'required|size:3',
+        'buku.buku_1' => 'required',
         'state.user_id' => 'required|exists:users,id',
         'state.buku_id' => 'required|exists:buku,id',
         'state.tanggal_pinjam' => 'required|date',
         'state.tanggal_kembali' => 'required|date',
-        'state.jumlah_pinjam' => 'required|integer',
     ];
     protected $messages = [
+        'buku.buku_1.required' => 'Bidang ini harus dipilih.',
         'state.user_id.required' => 'Bidang ini harus dipilih.',
-        'state.buku_id.required' => 'Bidang ini harus dipilih.',
         'state.tanggal_pinjam.required' => 'Format tanggal peminjaman tidak sesuai.',
         'state.tanggal_pinjam.date' => 'Format tanggal peminjaman tidak sesuai.',
         'state.tanggal_kembali.required' => 'Format tanggal pengembalian tidak sesuai.',
@@ -36,7 +37,7 @@ class ListPeminjamanBuku extends Component
     ];
     public function propertiReset()
     {
-        $this->reset(['peminjamanItem', 'peminjaman', 'state', 'tanggalPinjam', 'tanggalKembali', 'rules']);
+        $this->reset(['peminjamanItem', 'peminjaman', 'state', 'buku', 'tanggalPinjam', 'tanggalKembali', 'rules']);
         $this->resetValidation();
     }
 
@@ -68,29 +69,25 @@ class ListPeminjamanBuku extends Component
         $this->state['tanggal_pinjam'] = $this->tanggalPinjam['tahun'] . '-' . $this->tanggalPinjam['bulan'] . '-' . $this->tanggalPinjam['hari'];
         $this->state['tanggal_kembali'] = $this->tanggalKembali['tahun'] . '-' . $this->tanggalKembali['bulan'] . '-' . $this->tanggalKembali['hari'];
 
-        $this->validate();
         $kode = Peminjaman::firstWhere('kode', "PMJ-" . $this->state['kode']);
         if (!is_null($kode)) {
             return $this->addError('state.kode', 'Kode peminjaman sudah ada.');
         }
 
-        if ($this->state['jumlah_pinjam'] < 1) {
-            $this->dispatchBrowserEvent('pesan', [
-                'teks' => "Masukkan bilangan positif.",
-                'background' => "red",
-            ]);
-        }
+        $this->state['jumlah_pinjam'] = 1;
 
-        $buku = Buku::find($this->state['buku_id']); //request data buku untuk mengambil nilai stok buku
+        $buku = Buku::find($this->buku['buku_1']); //request data buku untuk mengambil nilai stok buku
 
         $sisa_buku = $buku->jumlah - $this->state['jumlah_pinjam'];
-
         if ($sisa_buku >= 0) {
             $buku->update(['jumlah' => $sisa_buku, 'dibaca' => $buku->dibaca + 1]);
-            $peminjaman = Peminjaman::create($this->state);
-            $pengembalian = new Pengembalian();
-            $pengembalian->kode = $this->state['kode'];
-            $peminjaman->pengembalian()->save($pengembalian);
+            foreach ($this->buku as $value) {
+                $this->state['buku_id'] =  $value;
+                $peminjaman = Peminjaman::create($this->state);
+                $pengembalian = new Pengembalian();
+                $pengembalian->kode = $this->state['kode'];
+                $peminjaman->pengembalian()->save($pengembalian);
+            }
 
             $this->propertiReset();
             $this->emit('hideModal');

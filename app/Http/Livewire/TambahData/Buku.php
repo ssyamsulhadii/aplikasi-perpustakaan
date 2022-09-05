@@ -41,7 +41,7 @@ class Buku extends Component
     {
         $validate = $this->validate([
             'state.kategori_id' => 'required|exists:kategori,id',
-            'state.sampul' => 'nullable|image|max:1024',
+            'state.sampul' => 'nullable|image|max:5024',
             'state.judul' => 'required|string',
             'state.penulis' => 'required|string',
             'state.penerbit' => 'required|string',

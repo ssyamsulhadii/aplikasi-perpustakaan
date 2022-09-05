@@ -11,17 +11,6 @@
                         <button wire:click.prevent="create" class="btn btn-outline-success mt-3">
                             Tambah
                         </button>
-                        <div class="btn-group dropdown mt-3">
-                            <a target="_blank" href="{{ route('cetak.kategori') }}" class="btn btn-outline-dark">Cetak</a>
-                            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                                <span class="sr-only">Cetak Berdasarkan</span>
-                            </button>
-                            <div class="dropdown-menu">
-                                @foreach ($rak_ as $rak)
-                                    <a target="_blank" class="dropdown-item" href="{{ route('cetak.kategori') . '?rak=' . $rak->id }}">{{ $rak->nama }}</a>
-                                @endforeach
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
